@@ -1,0 +1,35 @@
+Variance of random variable X, \(\mathbb{E}[(X-\mathbb{E}[x])^2]\)
+Standard deviation of random variable X, \(\sqrt{Var[X]})\)
+Epistemic uncertainty, Ignorance with respect to underlying data-generating process; model uncertainty
+Alaetoric uncertainty, Intrisic variability; data uncertainty
+Mode of a distribution, \(argmax_x pdf(X=x)\)
+Data missing completely at random, \( M \perp\!\!\!\perp X\)
+Data missing at random, \( M \perp\!\!\!\perp o(X; m) | p(X; m) \\ \text{where } m \text{ is a mask; } X \text{ has all true values and } o \text{ filters only observables} \)
+Data not missing at random, The missing value is correlated with the fact that it is missing
+Data missing due to censorship, The fact that a value is missing is deterministically dependent on its underlying value.
+Dirac-delta function, \( \delta(x) = \begin{cases} + \infty & \text{ if }\ x=0 \\ 0 & \text{ otherwise} \end{cases}\) where \( \int_{-\infty}^{\infty} \delta(x) dx = 1\)
+Homoscedasticity, A.k.a homogeneity of variances; Rule of thumb: if the ratio of the largest variance to the smallest variance is 1.5 or below the data is homoscedastic.
+Heteroscedasticity, The variance of a variable is unequal across the range of values of a second variable that predicts it.
+Pdf of a univariate Normal, \(f(x) = \frac{1}{\sigma\sqrt{2\pi}} exp(-\frac{1}{2}(\frac{x - \mu}{\sigma})^2) \) where \(\mu\) is the mean and \(\sigma\) the standard deviation
+Covariance of \(X\) and \(Y\), Measures degree to which \(X\) and \(Y\) are linearly related. \(\mathbb{E}[(X - \mathbb{E}[X])(Y - \mathbb{E}[Y])] = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y] \)
+Pearson correlation coefficient, 'Normalized covariance' - between -1  and 1. \(\rho = corr[X; Y] = \frac{Cov[X; Y]}{\sqrt{Var[X]Var[Y]}}\)
+Cross-entropy between discrete distributions \(p\) and \(q\) and support \(\mathcal{X}\), \(H(p; q) = -\sum_{x \in \mathcal{X}} p(x) \log q(x)\)
+Cross-entropy between \(p\) and \(q\), \(H(p; q) = \mathbb{E}_{p}[-\log (q)] = H(p) + D_{KL}(p || q) \)
+KL-divergence between \(p\) and \(q\), \( \int_{-\infty}^{\infty} p(x) log(\frac{p(x)}{q(x)}) dx \)
+Entropy of a discrete random variable \(X\) with distribution \(p: \mathcal{X} \rightarrow [0;1]\), \(H(X) = -\sum_{x \in \mathcal{X}}p(x)\log(p(x)) = \mathbb{E}[I[X]] = \mathbb{E}[-\log(p(x))]\)
+Justification for Maximum Likelihood Estimation, 1. Maximum A Posteriori with uniform prior 2.Minimal KL divergence to empirical distribution of data
+Ordinary Least Squares estimate, \(\hat{w}_{MLE} = argmin\ RSS(w) = (X^TX)^{-1}X^Ty\)
+Exponentially weighted moving average, \(\hat{\mu}_t = \beta \hat{\mu}_{t-1} + (1-\beta) y_t\)
+Cross-validated risk, \( R_{\lambda}^{CV} = \frac{1}{K} \sum_{k=1}^K R(\hat{\theta}_{\lambda} (\mathcal{D}_{-k}); \mathcal{D}_k)\)
+Standard error of a statistic, Standard deviation of the sampling distribution
+Conjugate prior, A prior is called conjugate to a likelihood if the posterior is in the same family as the prior.
+Posterior predictive distribution, \( p(y|x;D) = \int p(y|x; \theta) p(\theta|\mathcal{D}) d\theta\)
+Empirical Bayes, Aka type II maximum likelihood; \(argmax_{\psi} \int p(\mathcal{D}|\theta)p(\theta|\psi)d\theta\)
+\(100(1-\alpha) \)% Credible interval, Quantifies uncertainty associated with estimate; \(C_{\alpha}(\mathcal{D}) = (l; u): P(l \leq \theta \leq u | \mathcal{D}) = 1 - \alpha \)
+\(100(1-\alpha) \)% Central interval, Credible interval with \((1-\alpha)/2\) mass in each tail
+Highest density interval, \(C_{\alpha}(\mathcal{D}) = \{\theta: p(\theta|\mathcal{D}) \geq p^*\} \) where \(p^*\) is determined such that \(1 - \alpha = \int_{\theta: p(\theta|\mathcal{D}) > p^*} p(\theta|\mathcal{D}) d\theta\)
+Parametric bootstrap, Create \(S\) many datasets \(\mathcal{D}^{(s)} = \{x_n \sim p(x_n|\hat{\theta}): n=1:N\} \) and use them to estimate \(p(\pi(\mathcal{D}) = \theta|\mathcal{D} \sim \theta^*) = \frac{1}{S}\sum_{s=1}^S \delta(\theta = \pi(\mathcal{D}^{(s)})) \)
+Non-parametric bootstrap, Create \(S\) many datasets by sampling with replacement \(\mathcal{D}^{(s)} = \{x_n \sim \mathcal{D}: n=1:N\} \) and use them to estimate \(p(\pi(\mathcal{D}) = \theta|\mathcal{D} \sim \theta^*) = \frac{1}{S}\sum_{s=1}^S \delta(\theta = \pi(\mathcal{D}^{(s)})) \)
+\(100(1-\alpha) \)% Confidence interval, \(I(\mathcal{D}) = (l(\mathcal{D}); u(\mathcal{D})) \) such that \(\Pr[\theta \in I(\mathcal{D})|\mathcal{D} \sim \theta] = 1 - \alpha\)
+Confidence interval vs Credible interval, Credible interval: What's the probability that the underlying parameter stems from a given interval given the data? Confidence interval: What's the probability that the data confirms the parameter? Bayesian: parameter is random and data is fixed. Frequentist: parameter is fixed data is random.
+Bias-variance tradeoff, \(MSE = variance + bias^2\)

@@ -1,0 +1,21 @@
+Reinforcement Learning vs Supervised Learning, Learning with a critic vs learning with a teacher
+\(TFIDF_{ij} \) term \(i \) document \(j\), \( \frac{log(TF_{ij} + 1)}{log(\frac{n_{docs}}{n_{docs \text{ with term } i}})}\)
+Logistic function; a sigmoid function, \(\frac{1}{1+e^{-x}}\)
+Sofmax of vector \(a\), \(S(a) = [\frac{e^{a_1}}{\sum_{c=1}^C e^{a_c}}  \dots \frac{e^{a_C}}{\sum_{c=1}^C e^{a_c}} ]\) where \(a\) is called logits or generalized log odds
+Logit, \(\sigma^{-1}(p) = \log(\frac{p}{1-p})\)
+Downsampling in CNN architectures, 1. Kernels with stride > 1; 2. Pooling layers
+Complexity metrics for NNs, 1. #parameters; 2. #operations; 3. activation memory used
+Original motivation for skip-connections, Backpropagation didn't work properly when too many layers were stacked - presumably for numerical reasons
+Depthwise convoluton, 1. Separate kernel per channel; 2. Aggregation operation; Can have large speedup but is an approximation to conventional convolution
+Normalization, \( x_i = \frac{x_i - \hat{\mu}}{\sqrt{\hat{\sigma}^2} + \epsilon}\) where \(\epsilon\) is a small constant added for numerical purposes
+Batch normalization, Normalization (centering by mean; scaling by variance) of input for height and width and within-batch index per fixed channel
+Layer normalization, Normalization (centering by mean; scaling by variance) of input for height and width and channel per fixed within-batch index
+Instance normalization, Normalization (centering by mean; scaling by variance) of input for width and height per fixed channel and within-batch index
+Group normalization, Normalization (centering by mean; scaling by variance) of input for width and height and within-cluster index per channel-cluster and within-batch index
+Position normalization, Normalization (centering by mean; scaling by variance) of input for channel per fixed height and weight and within-batch index
+Weak supervision, Using metadata as labels for data; e.g. hashtags associated with a picture
+Paradigms of self-supervision in CV, 1. Invariance (function of input should equal function of perturbed input); 2. Pretext tasks (predicting properties)
+Invariance, \(f(g(x)) = f(x)\)
+Equivariance, \(f(g(x)) = g(f(x))\)
+Topology (informal), Geometric notion of neighborhood without notion of distance
+Manifold (informal), Topological space which resembles a Euclidean space locally; near each point.
