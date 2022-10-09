@@ -88,3 +88,11 @@ Approaches to deal with non-compliance, "1. Ignore receipt and tofucs on TE of a
 5. Drop non-compliers"
 
 Honest tree, "Splits learned from one sample, CATEs in leafs trained on another sample. Avoids bias."
+
+Prognostic effect, "\(\mathbb{E}[Y|X, T=0]\)"
+
+BART priors, "Tree structure:
+1. Given number of trees \(L\), splitting probability is a depth \(h\) is \(\frac{\eta}{(1 + h)^{\beta}}\)
+2. Uniform distribution among features to use for split
+3. Uniform distribution over feature-values to split at
+Leaf values: \(m_{lb} \approx \mathcal{N}(0, \sigma_m^2)\)"
