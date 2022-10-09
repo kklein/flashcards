@@ -19,3 +19,18 @@ Invariance, \(f(g(x)) = f(x)\)
 Equivariance, \(f(g(x)) = g(f(x))\)
 Topology (informal), Geometric notion of neighborhood without notion of distance
 Manifold (informal), Topological space which resembles a Euclidean space locally; near each point.
+
+LIME explanation, "\( \xi(x) = argmin_{g' \in G} \mathcal{L}(f, g', \pi_x) + \Omega(g')\) with
+- \(f\), the original model
+- \(G\) the class of possible, interpretable surrogate models
+- \(\Omega(g)\), a measure of complexity for \(g \in G\)
+- \(\pi_x(z)\) a proximity measure of \(z\) wrt data point \(x\)
+- \(\mathcal{L}(f, g, \pi_x)\) a measure of how unfaithful a \(g \in G\) is to \(f\) in the locality defined by \(\pi_x\)
+"
+
+Shapley value, "\( \psi_i(v) = \sum_{S \subset N \setminus \{i\}} {|N| \choose 1, |S|, n-|S|-1}^{-1} v(S \cup \{i\}) - v(S) \)
+for player \(i \in N\) wrt payoff \(v\)
+"
+
+Kinds of self-supervision, "1. Pretext task
+2. Invariance"
