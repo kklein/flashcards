@@ -1,5 +1,5 @@
 Variance of random variable X, \(\mathbb{E}[(X-\mathbb{E}[x])^2]\)
-Standard deviation of random variable X, \(\sqrt{Var[X]})\)
+Standard deviation of random variable X, \(\sqrt{Var[X]}\)
 Epistemic uncertainty, Ignorance with respect to underlying data-generating process; model uncertainty
 Alaetoric uncertainty, Intrisic variability; data uncertainty
 Mode of a distribution, \(argmax_x pdf(X=x)\)
@@ -15,7 +15,7 @@ Covariance of \(X\) and \(Y\), Measures degree to which \(X\) and \(Y\) are line
 Pearson correlation coefficient, 'Normalized covariance' - between -1  and 1. \(\rho = corr[X; Y] = \frac{Cov[X; Y]}{\sqrt{Var[X]Var[Y]}}\)
 Cross-entropy between discrete distributions \(p\) and \(q\) and support \(\mathcal{X}\), \(H(p; q) = -\sum_{x \in \mathcal{X}} p(x) \log q(x)\)
 Cross-entropy between \(p\) and \(q\), \(H(p; q) = \mathbb{E}_{p}[-\log (q)] = H(p) + D_{KL}(p || q) \)
-KL-divergence between \(p\) and \(q\), \( \int_{-\infty}^{\infty} p(x) log(\frac{p(x)}{q(x)}) dx \)
+KL-divergence between \(p\) and \(q\), \( \int_{-\infty}^{\infty} p(x) \log\frac{p(x)}{q(x)} dx \)
 Entropy of a discrete random variable \(X\) with distribution \(p: \mathcal{X} \rightarrow [0;1]\), \(H(X) = -\sum_{x \in \mathcal{X}}p(x)\log(p(x)) = \mathbb{E}[I[X]] = \mathbb{E}[-\log(p(x))]\)
 Justification for Maximum Likelihood Estimation, 1. Maximum A Posteriori with uniform prior 2.Minimal KL divergence to empirical distribution of data
 Ordinary Least Squares estimate, \(\hat{w}_{MLE} = argmin\ RSS(w) = (X^TX)^{-1}X^Ty\)
