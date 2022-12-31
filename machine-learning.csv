@@ -5,7 +5,9 @@ Sofmax of vector \(a\), \(S(a) = [\frac{e^{a_1}}{\sum_{c=1}^C e^{a_c}}  \dots \f
 Logit, \(\sigma^{-1}(p) = \log(\frac{p}{1-p})\)
 
 Weak supervision, Using metadata as labels for data; e.g. hashtags associated with a picture
-Paradigms of self-supervision in CV, 1. Invariance (function of input should equal function of perturbed input); 2. Pretext tasks (predicting properties)
+Paradigms of self-supervision in CV, "1. Invariance (function of input should equal function of perturbed input)
+2. Pretext tasks (predicting properties)"
+
 Invariance, \(f(g(x)) = f(x)\)
 Equivariance, \(f(g(x)) = g(f(x))\)
 Topology (informal), Geometric notion of neighborhood without notion of distance
@@ -26,7 +28,21 @@ for player \(i \in N\) wrt payoff \(v\)
 Kinds of self-supervision, "1. Pretext task
 2. Invariance"
 
-Cross-entropy between discrete distributions \(p\) and \(q\) and support \(\mathcal{X}\), \(H(p; q) = -\sum_{x \in \mathcal{X}} p(x) \log q(x)\)
-Cross-entropy between \(p\) and \(q\), \(H(p; q) = \mathbb{E}_{p}[-\log (q)] = H(p) + D_{KL}(p || q) \)
-KL-divergence between \(p\) and \(q\), \( \int_{-\infty}^{\infty} p(x) \log\frac{p(x)}{q(x)} dx \)
-Entropy of a discrete random variable \(X\) with distribution \(p: \mathcal{X} \rightarrow [0;1]\), \(H(X) = -\sum_{x \in \mathcal{X}}p(x)\log(p(x)) = \mathbb{E}[I[X]] = \mathbb{E}[-\log(p(x))]\)
+Entropy of a discrete random variable \(X\) with distribution \(p\), \(\mathbb{H}(X) = \mathbb{H}(p) = -\sum_{x \in \mathcal{X}}p(x)\log(p(x)) = \mathbb{E}[-\log(p(x))]\)
+Cross-entropy between discrete distributions \(p\) and \(q\) with support \(\mathcal{X}\), "\(\mathbb{H}(p, q) = -\sum_{x \in \mathcal{X}} p(x) \log q(x)\)"
+Joint entropy, "\(\mathbb{H}(X, Y) := -\sum_{\mathcal{X}, \mathcal{Y}} p(X=x, Y=y)\log_2 p(X=x, Y=y)\) "
+Conditional entropy, "\(\begin{aligned} \mathbb{H}(X|Y) &:= \mathbb{E}_{p(X)}[\mathbb{H}(p(Y|X))] \\ &= \mathbb{H}(X, Y) - \mathbb{H}(X) \end{aligned}\)"
+KL-divergence between \(p\) and \(q\), "\( D_{KL}(p\|\|q) := \sum_{\mathcal{X}} p(X=x) \log_2 \frac{p(X=x)}{q(X=X)} = \mathbb{H}(p, q) - \mathbb{H}(p) \)"
+Forwards KL-divergence, Approximating \(p\) with \(q\) by minimizing \(D_{KL}(p\|q)\) w.r.t. \(q\)
+Backwards KL-divergence, Approximating \(p\) with \(q\) by minimizing \(D_{KL}(q\|p)\) w.r.t. \(q\)
+(Expected) Mutual Information a.k.a. Information Gain, "\(\begin{aligned} \mathbb{I}(X;Y) &:= D_{KL}(p(X, Y) \| p(X)p(Y)) \\ &= \mathbb{H}(X) - \mathbb{H}(X\|Y) \\ &= \mathbb{H}(X) + \mathbb{H}(Y) - \mathbb{H}(X, Y) \end{aligned}\)"
+Conditional Mutual Information, "\(\begin{aligned} \mathbb{I}(X;Y|Z) &:= \mathbb{E}_{p(Z)} [ \mathbb{I}(X;Y) | Z] \\ &= \mathbb{I}(Y; X, Z) - \mathbb{I}(Y;Z) \end{aligned} \)"
+
+Interpretation of entropy, "1. Measure of uncertainty/lack of predictability.
+2. Expected number of bits needed to losslessly encode a signal."
+
+Interpretation of KL-divergence, "1. Divergence measure quantifying how far \(q\) is from \(p\).
+2. Extra number of expected bits necessary to encode signal from \(p\) with \(q\)."
+
+Interpreation of Expected Mutual Information, "1. Information gain if we swith from a model with independent \(p(x)\) and \(p(y)\) to a model with joint \(p(x, y)\).
+2. Reduction of uncertainty in \(X\) after observing \(Y\) and vice versa."
