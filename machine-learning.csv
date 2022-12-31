@@ -25,3 +25,8 @@ for player \(i \in N\) wrt payoff \(v\)
 
 Kinds of self-supervision, "1. Pretext task
 2. Invariance"
+
+Cross-entropy between discrete distributions \(p\) and \(q\) and support \(\mathcal{X}\), \(H(p; q) = -\sum_{x \in \mathcal{X}} p(x) \log q(x)\)
+Cross-entropy between \(p\) and \(q\), \(H(p; q) = \mathbb{E}_{p}[-\log (q)] = H(p) + D_{KL}(p || q) \)
+KL-divergence between \(p\) and \(q\), \( \int_{-\infty}^{\infty} p(x) \log\frac{p(x)}{q(x)} dx \)
+Entropy of a discrete random variable \(X\) with distribution \(p: \mathcal{X} \rightarrow [0;1]\), \(H(X) = -\sum_{x \in \mathcal{X}}p(x)\log(p(x)) = \mathbb{E}[I[X]] = \mathbb{E}[-\log(p(x))]\)
