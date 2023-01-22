@@ -44,5 +44,43 @@ Interpretation of entropy, "1. Measure of uncertainty/lack of predictability.
 Interpretation of KL-divergence, "1. Divergence measure quantifying how far \(q\) is from \(p\).
 2. Extra number of expected bits necessary to encode signal from \(p\) with \(q\)."
 
-Interpreation of Expected Mutual Information, "1. Information gain if we swith from a model with independent \(p(x)\) and \(p(y)\) to a model with joint \(p(x, y)\).
+Interpretation of Expected Mutual Information, "1. Information gain if we swith from a model with independent \(p(x)\) and \(p(y)\) to a model with joint \(p(x, y)\).
 2. Reduction of uncertainty in \(X\) after observing \(Y\) and vice versa."
+
+Difference between contextual bandit and RL, "In RL; an action in a given state influences the reward as well as the future state. In CB; the action only influeces the reward; not the future state."
+
+Gram Matrix, "\(A^TA\), always positive semidefinite"
+Orthogonal matrix \(U\), \(U^T U = U U^T = I\)
+Eigenvalue decomposition, "Of a real, symmetrix matrix \(A\): \(A = U \Lambda U^T\), where \(U\) is orthonormal"
+
+Singular value decomposision, "Of a real, \(m \times n\) matrix \(A\):
+\(A = USV^T\), where
+\(U: m \times m\) has orthonormal columns s.t. \(U^TU = I_m\)
+\(V: n \times n\) has orthonormal columns and rows, s.t. \(V^TV = VV^T = I_n\)
+\(S: m \times n\) has \(r = min(m, n)\) sigular values on the diagonal
+"
+
+Rank-nullity theorem, "For \(A: m \times n\), \(dim(range(A)) + dim(nullspace(A)) = r + (n - r) = n\)
+LU factorization, "Any sqaure matrix can be factorized into a product of a lower triangular and upper trinagular matrix."
+
+Partial derivative of \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) wrt \(x_i\), " \(\frac{\partial f}{\partial x_i} = \lim_{h \rightarrow 0} \frac{f(x + h e_i) - f(x)}{h}\)"
+
+Gradient of \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) wrt point \(x\), "\(\nabla f = \frac{\partial f}{\partial x} = (\frac{\partial f}{\partial x_i}, \dots, \frac{\partial f}{\partial x_n})^T\)
+Note that \(\nabla f: \mathbb{R}^n \rightarrow \mathbb{R}^n\) is a vector field."
+
+Jacobian matrix, "Of a function \(f: \mathbb{R}^n \rightarrow \mathbb{R}^m\) is an \(m \times n\) matrix of partial derivatives:
+\(J_f(x) = \frac{\partial f}{\partial x^T} =  \begin{pmatrix}
+\frac{\partial f_1}{\partial x_1} & \dots & \frac{\partial f_1}{\partial x_n}\\
+\dots & \dots & \dots \\
+\frac{\partial f_m}{\partial x_1} & \dots & \frac{\partial f_m}{\partial x_n}
+\end{pmatrix}\)"
+
+Hessian matrix, "Of a function \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) is an \(n \times n\) matrix of partial derivatives:
+\(H_f(x) = \frac{\partial^2 f}{\partial x^2} = \nabla^2 f = \begin{pmatrix}
+\frac{\partial^2 f}{\partial x_1^2} & \dots & \frac{\partial^2 f}{\partial x_1 \partial x_n}\\
+\dots & \dots & \dots \\
+\frac{\partial f^2}{\partial x_n \partial x_1} & \dots & \frac{\partial^2 f}{\partial x_n^2}
+\end{pmatrix}\)"
+
+
+
