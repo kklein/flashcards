@@ -87,5 +87,52 @@ Hessian matrix, "Of a function \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) is an 
 \frac{\partial f^2}{\partial x_n \partial x_1} & \dots & \frac{\partial^2 f}{\partial x_n^2}
 \end{pmatrix}\)"
 
+Necessary and sufficient conditions for local minimum at \(\theta^*\), "
+Necessary: \(\nabla\mathcal{L}(\theta)|_{\theta^*} = 0\), \(H(\theta^*)\) positive semi-definite
+Sufficient: \(\nabla\mathcal{L}(\theta)|_{\theta^*} = 0\), \(H(\theta^*)\) positive definite
+"
 
+Convex set \(\mathcal{S}\), "\(\forall x, x' \in \mathcal{S}, \forall \lambda \in [0, 1]: \lambda x + (1 - \lambda)x' \in \mathcal{S}\)"
 
+Definition of convex function \(f\), "
+1. The epigraph of the function, i.e. all point lying above it, defines a convex set.
+2. Defined on a convex set and \(\forall x, y \in \mathcal{S}, \forall \lambda \in [0, 1]: f(\lambda x + (1 - \lambda) y) \leq \lambda f(x) + (1 - \lambda)f(y)\)
+"
+
+A twice diferentiable function \(f\) is convex iff its Hessian, is positive semi-definite for all \(x \in dom(f)\)
+Lipschitz constant \(L\) of a function \(f\), Characterizes the degree of smoothness s.t. \(|f(x_1) - f(x_2)| \leq L |x_1 - x_2| \)
+Momentum in gradient descent, Exponentially weighted moving average of past gradients \(m_t = g_{t-1} + m_{t-1} \beta\)
+First-order methods, rely on evaluation of the gradient of the function
+Second-order methods, rely on evaluation of the Hessian of the function
+Newton's method, \(\theta_{t+1} = \theta_t - \rho_t H_t^{-1} g_t\) where \(H_t\) is assumed to be positive-definite.
+
+Stochastic Gradient Descent, "Compute an unbiased estimate of the gradient of \(\mathcal{L}\) by only using one sample \(z_t \sim q\) in the loss function.
+It is necessary that \(q\) is independent of the parameters to be optimized. This results in:
+\(\theta_{t+1} = \theta_t - \rho_t \nabla \mathcal{L}(\theta_t, z_t)\)
+"
+
+Learning rate warmup, Quickly increasing the learning rate and then gradually decreasing it again.
+
+ADAGRAD, "\(\theta_{t+1, d} = \theta_{t, d} - \rho_t \frac{1}{\sqrt{s_{t, d} + \epsilon}}g_{t, d}\)
+where
+\(s_{t, d} = \sum_{t'=1}^t g_{t', d}^2\)
+This approach is considered to employ an 'adaptive learning rate' and can be viewed as preconditioned SGD.
+"
+
+ADAM, "Short for 'Adaptive moment estimation' computes an EMWA of the gradients and sqaured gradients:
+\(m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t\)
+\(s_t = \beta_2 s_{t-1} + (1 - \beta_2) g_t^2\)
+\(\theta_t = \theta_{t-1} - \rho_t \frac{\sqrt{s_t} + \epsilon}{} m_t\)
+"
+
+EM algorithm, "Bound optimization algorithm assuming missing/hidden/latent variables in the joint distribution.
+The goal of EM is to maximize the log likelihood:
+\(LL(\theta) = \sum_{n=1}^N \log p(y_n|\theta) = \sum_{n=1}^N log \sum_{z_n} p(y_n, z_n|\theta)\)
+It does so by estimating the hidden variables in the E-step and copute a parameter estimate (e.g. via MLE or MAP) in the M-step.
+"
+
+ELBO, "\(\mathbb{E}_{q_n} [\log p(y_n, z_n | \theta) + \mathbb{H}(q_n)\)
+which can be derived by applying Jensen's inequaklity to the concave log function of the log-likelihood:
+\(LL(\theta) = \sum_{n=1}^N \log p(y_n|\theta) = \sum_{n=1}^N log \sum_{z_n} q_n(z_n) \frac{p(y_n, z_n|\theta)}{q_n(z_n)}
+\geq \sum_n \sum_{z_n} q_n(z_n) \log \frac{p(y_n, z_n | \theta)}{q_n(z_n)} \)
+"
