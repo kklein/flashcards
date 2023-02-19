@@ -136,3 +136,42 @@ which can be derived by applying Jensen's inequaklity to the concave log functio
 \(LL(\theta) = \sum_{n=1}^N \log p(y_n|\theta) = \sum_{n=1}^N log \sum_{z_n} q_n(z_n) \frac{p(y_n, z_n|\theta)}{q_n(z_n)}
 \geq \sum_n \sum_{z_n} q_n(z_n) \log \frac{p(y_n, z_n | \theta)}{q_n(z_n)} \)
 "
+
+Objective of RL, "Maximize cumulative reward \(\sum_{t=0}^H \gamma^t r(s_t, a_t)\)"
+
+Typical methodological challenges of RL, "
+1. Sparse rewards
+2. Credit assignment problem
+"
+
+RL: Markov Decision Process, "\((\mathcal{S}, \mathcal{A}, T, d_0, r, \gamma)\)
+where
+  - \(\mathcal{S}\) is the state space
+  - \(\mathcal{A}\) is the action space
+  - \(T\) defines a transition distribution \(p(s_{t+1}|s_t, a_t)\)
+  - \(d_0\) defines a distribution over intial states
+  - \(r: \mathcal{A} \times \mathcal{S} \rightarrow \mathbb{R}\) is a reward function
+  - \(\gamma \in ]0,1[\) is a discounting constant
+"
+
+RL: policy, "\(\pi: \mathcal{S} \times \mathcal{A} \rightarrow [0, 1]\)"
+
+Online RL, The policy is updated after every observation.
+Off-policy RL, A buffer of data with a fixed policy is gathered before the policy is updated.
+Offline RL, The to-be-learned policy is never actually rolled out to interact with the environment in the training process.
+
+RL: State value function, "\(V^\pi(s) = \mathbb{E}_{\tau \sim p_\pi(\tau|s)} [\sum_{t=T}^H\gamma^{t-T}r_t(a_t, s_t)]\)"
+
+RL: State-action value fuction, "\(Q^\pi(a, s) = \mathbb{E}_{\tau \sim p_\pi(\tau|a, s)} [\sum_{t=T}^H \gamma^{t-T}r_t(a_t, s_t)]\)"
+
+RL: Model-free, Not expliclity modeling the environment's transition probabilities \(T\).
+
+RL: Model-based, Expliclity modeling the environment's transition probabilities \(T\).
+
+RL: Policy gradient, Explicitly modeling the policy \(\pi\) and update its parameters \(\theta\) based on the estimated gradient of the rewards.
+
+RL: Q-Learning, Explicitly modeling the Q-function \(Q\) and update its parameters \(\theta\) based on the estimated gradient of the rewards. The policy is implictly defined as an arg-max over the Q-function.
+
+RL: Actor-critic, Explicitly modeling the policy function and either of the Q-function or the V-function. Take turns optimizing.
+
+Main methodological challenge of offline RL, Distributional shift
