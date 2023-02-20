@@ -25,9 +25,6 @@ Shapley value, "\( \psi_i(v) = \sum_{S \subset N \setminus \{i\}} {|N| \choose 1
 for player \(i \in N\) wrt payoff \(v\)
 "
 
-Kinds of self-supervision, "1. Pretext task
-2. Invariance"
-
 Entropy of a discrete random variable \(X\) with distribution \(p\), \(\mathbb{H}(X) = \mathbb{H}(p) = -\sum_{x \in \mathcal{X}}p(x)\log(p(x)) = \mathbb{E}[-\log(p(x))]\)
 Cross-entropy between discrete distributions \(p\) and \(q\) with support \(\mathcal{X}\), "\(\mathbb{H}(p, q) = -\sum_{x \in \mathcal{X}} p(x) \log q(x)\)"
 Joint entropy, "\(\mathbb{H}(X, Y) := -\sum_{\mathcal{X}, \mathcal{Y}} p(X=x, Y=y)\log_2 p(X=x, Y=y)\) "
