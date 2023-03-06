@@ -33,7 +33,7 @@ Conditional entropy, "
 \(\begin{aligned} \mathbb{H}(X|Y) &:=
 \mathbb{E}_{p(X)}[\mathbb{H}(p(Y|X))] \\
 &= \mathbb{H}(X, Y) - \mathbb{H}(Y) \\
-&= \sum_{x \in \mathcal{X}, y \in \mathcal{Y} p(x, y) log p(x|y) \end{aligned}\)"
+&= \sum_{x \in \mathcal{X}, y \in \mathcal{Y}} p(x, y) \log p(x|y) \end{aligned}\)"
 
 KL-divergence between \(p\) and \(q\), "\( D_{KL}(p\|\|q) := \sum_{\mathcal{X}} p(X=x) \log_2 \frac{p(X=x)}{q(X=x)} = \mathbb{H}(p, q) - \mathbb{H}(p) \)"
 Forwards KL-divergence, Approximating \(p\) with \(q\) by minimizing \(D_{KL}(p\|q)\) w.r.t. \(q\)
