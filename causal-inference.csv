@@ -21,7 +21,7 @@ where \(U_i\) are the unobserved fixed effects for unit \(i\)."
 
 Two-way Fixed Effect Model (TWFE), \(Y_{it} = \alpha + \mu_i + \beta_t + \tau D_{it} + \epsilon_{it}\)
 Synthetic Control, "Assuming unit \(1\) is treated and \(2 \dots J\) are not, the control group outcome becomes \(\hat{Y_{1t}^N} = \sum_{j=2}^J w_j Y_{jt}\) with optional constraints on \(w\)."
-Berkson's paraxox, Conditioning on a variable that two variables of interest predict; collider bias; explaining away phenomenon.
+Berkson's paradox, Conditioning on a variable that two variables of interest predict; collider bias; explaining away phenomenon.
 
 Regression discontinuity design, "\(\mathbb{E}[Y_i(1) - Y_i(0)|R_i = r] = \lim_{c \rightarrow r^+} \mathbb{E}[Y_i | R_i=c] - \lim_{c \rightarrow r^-} \mathbb{E}[Y_i | R_i=c] \)
 \( y_i = \beta_0 + \beta_1 r_i + \beta_2I[r_i > c] + \beta_3I[r_i > c]r_i\)
