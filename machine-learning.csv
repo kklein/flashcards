@@ -21,7 +21,7 @@ LIME explanation, "\( \xi(x) = argmin_{g' \in G} \mathcal{L}(f, g', \pi_x) + \Om
 - \(\mathcal{L}(f, g, \pi_x)\) a measure of how unfaithful a \(g \in G\) is to \(f\) in the locality defined by \(\pi_x\)
 "
 
-Shapley value, "\( \psi_i(v) = \sum_{S \subset N \setminus \{i\}} {|N| \choose 1, |S|, n-|S|-1}^{-1} v(S \cup \{i\}) - v(S) \)
+Shapley value, "\( \psi_i(v) = \sum_{S \subset N \setminus \{i\}} {|N| \choose 1, |S|, n-|S|-1}^{-1} (v(S \cup \{i\}) - v(S)) \)
 for player \(i \in N\) wrt payoff \(v\)
 "
 
@@ -31,9 +31,8 @@ Joint entropy, "\(\mathbb{H}(X, Y) := -\sum_{\mathcal{X}, \mathcal{Y}} p(X=x, Y=
 
 Conditional entropy, "
 \(\begin{aligned} \mathbb{H}(X|Y) &:=
-\mathbb{E}_{p(X)}[\mathbb{H}(p(Y|X))] \\
-&= \mathbb{H}(X, Y) - \mathbb{H}(Y) \\
-&= \sum_{x \in \mathcal{X}, y \in \mathcal{Y}} p(x, y) \log p(x|y) \end{aligned}\)"
+\sum_{x \in \mathcal{X}, y \in \mathcal{Y}} p(x, y) \log p(x|y) \end{aligned} \\
+&= \mathbb{H}(X, Y) - \mathbb{H}(Y)\)"
 
 KL-divergence between \(p\) and \(q\), "\( D_{KL}(p\|\|q) := \sum_{\mathcal{X}} p(X=x) \log_2 \frac{p(X=x)}{q(X=x)} = \mathbb{H}(p, q) - \mathbb{H}(p) \)"
 Forwards KL-divergence, Approximating \(p\) with \(q\) by minimizing \(D_{KL}(p\|q)\) w.r.t. \(q\)
@@ -119,7 +118,7 @@ This approach is considered to employ an 'adaptive learning rate' and can be vie
 ADAM, "Short for 'Adaptive moment estimation' computes an EMWA of the gradients and sqaured gradients:
 \(m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t\)
 \(s_t = \beta_2 s_{t-1} + (1 - \beta_2) g_t^2\)
-\(\theta_t = \theta_{t-1} - \rho_t \frac{\sqrt{s_t} + \epsilon}{} m_t\)
+\(\theta_t = \theta_{t-1} - \rho_t \frac{1}\sqrt{s_t} + \epsilon} m_t\)
 "
 
 EM algorithm, "Bound optimization algorithm assuming missing/hidden/latent variables in the joint distribution.
@@ -172,3 +171,20 @@ RL: Q-Learning, Explicitly modeling the Q-function \(Q\) and update its paramete
 RL: Actor-critic, Explicitly modeling the policy function and either of the Q-function or the V-function. Take turns optimizing.
 
 Main methodological challenge of offline RL, Distributional shift
+
+Discriminative classifier, Models \(p(y|x;\theta)\) directly
+
+Generative classifier, "Models \(p(y|x;\theta)\) via Bayes rule:
+\(\frac{p(x|y=c;\theta)p(y=c;\theta)}{\sum_{c'} p(x|y=c';\theta)p(y=c';\theta) } \)
+Where \(p(x|y=c;\theta)\) is called the class-conditional density. The latter can
+be used to generate data, hence the name."
+
+Linear Discriminant Analysis, "Generative classifier where the class posterior is a linear function of \(x\):
+\(\log p(y=c|x;\theta) = w^Tx + const \) where \(w\) is derived from \(\theta\)."
+
+Difference between LDA and logistic regression, "While both have the same form for the class posterior
+\(p(y=c|x;\theta)\), they optimize different objectives. LDA maximizes the joint likelihood \(p(x, y | \theta)\)
+while logistic regression maximized the conditional likelihood \(p(y|x,w)\)."
+
+Naive Bayes assumption, "The features are conditionally independent on each other, conditioned on the label."
+
