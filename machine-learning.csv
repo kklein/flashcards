@@ -187,4 +187,26 @@ Difference between LDA and logistic regression, "While both have the same form f
 while logistic regression maximized the conditional likelihood \(p(y|x,w)\)."
 
 Naive Bayes assumption, "The features are conditionally independent on each other, conditioned on the label."
+Ways to compute pesudo-inverse in OLS, "QR or SVD decomposition of pseudo-inverse"
 
+\(R^2\), "Coefficient of determination
+\(R^2 = 1 - \frac{RSS}{TSS} = 1 - \frac{\sum_{i=1}^N (\hat{y}_i - y_i)^2}{\sum_{i=1}^N (\bar{y} - y_i)^2 }\)
+It measures the variance in predictions relative to a constant prediction.
+"
+
+Prior for ridge/l2 regression, "Normal"
+Prior for lasso/l1 regression, "Laplace"
+Geometric intuition for which l1 regularization is sparser than l2 regularization, The corners of the diamond are more likely to intersect with an ellipsis than arbitrary points of a ball - especially in high dimensions.
+Reason for which we don't use l0 regularization for sparse weights in linear regression, The problem would become non-convex.
+
+Methods of regularization for linear regression, "
+1. L1 (lasso)
+2. L2 (ridge)
+3. L1 & L2 (ElasticNet)
+4. L1 for feature selection, no regularization for actual weights ('debiasing')
+5. Group LASSO (for highly correlated features or one-hot encoded levels of a categorical)
+"
+
+Robust linear regression, "Assumption that the outcome is not Normal-distributed but follows either a
+Laplace or student-t distribution. Both have heavier tails, which makes the optimization procedure
+less vulnerable to 'outliers'."
