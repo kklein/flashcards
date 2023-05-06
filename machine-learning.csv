@@ -227,3 +227,8 @@ where \(\mu_i\) is the predicted parameter for the ith sample based on input fea
 \(\mu_i^*\) is the estimated parameter when using the true output. E.g. in Poisson regression we
 have that \(\mu_i^* = y_i\).
 "
+
+One Standard Error Rule, "Heuristic for model selection. Given an evaluation (mean, std error)
+of different models with different numbers of parameters with respect to a metric, choose the
+simplest model whose mean is still within 1 standard error of the best-performing model.
+"
