@@ -29,3 +29,22 @@ Non-parametric bootstrap, Create \(S\) many datasets by sampling with replacemen
 \(100(1-\alpha) \)% Confidence interval, \(I(\mathcal{D}) = (l(\mathcal{D}); u(\mathcal{D})) \) such that \(\Pr[\theta \in I(\mathcal{D})|\mathcal{D} \sim \theta] = 1 - \alpha\)
 Confidence interval vs Credible interval, Credible interval: What's the probability that the underlying parameter stems from a given interval given the data? Confidence interval: What's the probability that the data confirms the parameter? Bayesian: parameter is random and data is fixed. Frequentist: parameter is fixed data is random.
 Bias-variance tradeoff, \(MSE = variance + bias^2\)
+
+Sufficient statistic \(t = T(X)\) for \(\theta\),"
+1. \(t\) is sufficient for underlying parameter \(\theta\) precisely if the conditional probability distribution of the data \(X\), given the statistic \(t = T(X)\), does not depend on the parameter \(\theta\).
+2. \(I(\theta; T(X)) = I(\theta, X)\) where \(I\) is the mutual information.
+"
+
+Consistent estimator,"Formally speaking, an estimator \(T_n\) of parameter \(theta\) is said to be consistent, if it converges in probability to the true value of the parameter."
+
+Bias of an estimator, "The bias of an estimator is the difference between this estimator's expected value and the true value of the parameter being estimated."
+
+Example of a biased but consistent estimator,"Assume \(X_i \sym \mathcal{U}(0, \theta)\). We
+define our estimator for \(\theta\) as follows: \(\hat{\theta} = \max_i X_i\). Intuitively
+this is biased because it is always, in expectation, underestimating the true parameter.
+Formally, its expected value is \(mathbb{E}[\hat{\theta}] = \frac{n}{n+1}\theta\).
+"
+
+Example of an unbias but inconsistent estimator, "Given a series of \(n\) numbers, we would
+like to estimate the true underlying mean. We can define the estimator to be the most recently
+drawn number."
