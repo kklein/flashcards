@@ -58,17 +58,17 @@ where \(G\) is a partitioning of the covariate space \(\mathbb{X}\).
 In other words, we have \(N_{t, g}\) treated units in stratum \(g\).
 Note: \(X\) and \(W\) represent information for all units."
 
-Paired Randomized Expirement, "\(p(W|Y(0), Y(1), X) = \frac{1}{2}^{N/2}\) for all \(W\)
+Paired Randomized Experiment, "\(p(W|Y(0), Y(1), X) = \frac{1}{2}^{N/2}\) for all \(W\)
 s.t. \(\forall g \sum_{i=1}^N G_{ig} W_i = 1\)
 In other words, we have exactly one treated unit per pair."
 
 Spillover effect, Interactions between units due to absence or presence of treatment.
 
-Clustered Randomized Expirement, "\(p(W|Y(0), Y(1), X) = {G \choose G_t}^{-1} \) for all \(W\)
+Clustered Randomized Experiment, "\(p(W|Y(0), Y(1), X) = {G \choose G_t}^{-1} \) for all \(W\)
 s.t. \( G_{ig} = G_{i'g} = 1 \Rightarrow W_i = W_{i'}\) and \(\sum_{g=1}^G \bar{W_g} = G_t\)
 In other words, every unit per cluster receives the same assignment and in total \(G_t\) clusters are selected to be treated."
 
-\(s\)-th quantile treatement effect, "\(\tau_s = q_{Y(1)}(s) - q_{Y(0)}(s)\)
+\(s\)-th quantile treatment effect, "\(\tau_s = q_{Y(1)}(s) - q_{Y(0)}(s)\)
 Where \(q_Y(s) = \inf_y I[F_Y(y) \leq s]\)"
 
 Power calculation, "\(f: [0, 1] \times \mathbb{R} \rightarrow \mathbb{N}^+
@@ -79,13 +79,13 @@ Motivation for clustered randomized experiment, "1. Account for interactions bet
 2. It might be simpler to sample at cluster level."
 
 One-sided non-compliance, "Some units assigned to treatment might not take it. Units assigned to control comply and will not take the treatment."
-Two-sided non-compliance, "Any unit might disregard their assigment."
+Two-sided non-compliance, "Any unit might disregard their assignment."
 
-Approaches to deal with non-compliance, "1. Ignore receipt and tofucs on TE of assignment ('Intention-to-treat analysis')
-2. Instrumental Variable; causal effect of receipt for subpopulation of compliers
+Approaches to deal with non-compliance, "1. Ignore receipt and focus on treatment effect of assignment ('Intention-to-treat analysis')
+2. Instrumental Variable; causal effect of receipt for subpopulation of complying units
 3. 'Bounds analysis'
 4. 'As-treated', pretend people complied
-5. Drop non-compliers"
+5. Drop non-complying observations"
 
 Honest tree, "Splits learned from one sample, CATEs in leafs trained on another sample. Avoids bias."
 

@@ -1,3 +1,5 @@
+#deck:"Causal Inference"
+#noteypte:"basic-bf4b5"
 Variance of random variable X, \(\mathbb{E}[(X-\mathbb{E}[x])^2]\)
 Standard deviation of random variable X, \(\sqrt{Var[X]}\)
 Epistemic uncertainty, Ignorance with respect to underlying data-generating process; model uncertainty

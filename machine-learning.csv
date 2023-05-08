@@ -49,7 +49,7 @@ Interpretation of KL-divergence, "1. Divergence measure quantifying how far \(q\
 Interpretation of Expected Mutual Information, "1. Information gain if we switch from a model with independent \(p(x)\) and \(p(y)\) to a model with joint \(p(x, y)\).
 2. Reduction of uncertainty in \(X\) after observing \(Y\) and vice versa."
 
-Difference between contextual bandit and RL, "In RL; an action in a given state influences the reward as well as the future state. In CB; the action only influeces the reward; not the future state."
+Difference between contextual bandit and RL, "In RL; an action in a given state influences the reward as well as the future state. In CB; the action only influences the reward; not the future state."
 
 Gram Matrix, "\(A^TA\), always positive semidefinite"
 Orthogonal matrix \(U\), \(U^T U = U U^T = I\)
@@ -115,7 +115,7 @@ where
 This approach is considered to employ an 'adaptive learning rate' and can be viewed as preconditioned SGD.
 "
 
-ADAM, "Short for 'Adaptive moment estimation' computes an EMWA of the gradients and sqaured gradients:
+ADAM, "Short for 'Adaptive moment estimation' computes an EMWA of the gradients and squared gradients:
 \(m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t\)
 \(s_t = \beta_2 s_{t-1} + (1 - \beta_2) g_t^2\)
 \(\theta_t = \theta_{t-1} - \rho_t \frac{1}\sqrt{s_t} + \epsilon} m_t\)
@@ -124,7 +124,7 @@ ADAM, "Short for 'Adaptive moment estimation' computes an EMWA of the gradients 
 EM algorithm, "Bound optimization algorithm assuming missing/hidden/latent variables in the joint distribution.
 The goal of EM is to maximize the log likelihood:
 \(LL(\theta) = \sum_{n=1}^N \log p(y_n|\theta) = \sum_{n=1}^N log \sum_{z_n} p(y_n, z_n|\theta)\)
-It does so by estimating the hidden variables in the E-step and copute a parameter estimate (e.g. via MLE or MAP) in the M-step.
+It does so by estimating the hidden variables in the E-step and compute a parameter estimate (e.g. via MLE or MAP) in the M-step.
 "
 
 ELBO, "\(\mathbb{E}_{q_n} [\log p(y_n, z_n | \theta) + \mathbb{H}(q_n)\)
@@ -145,7 +145,7 @@ where
   - \(\mathcal{S}\) is the state space
   - \(\mathcal{A}\) is the action space
   - \(T\) defines a transition distribution \(p(s_{t+1}|s_t, a_t)\)
-  - \(d_0\) defines a distribution over intial states
+  - \(d_0\) defines a distribution over initial states
   - \(r: \mathcal{A} \times \mathcal{S} \rightarrow \mathbb{R}\) is a reward function
   - \(\gamma \in ]0,1[\) is a discounting constant
 "
@@ -158,7 +158,7 @@ Offline RL, The to-be-learned policy is never actually rolled out to interact wi
 
 RL: State value function, "\(V^\pi(s) = \mathbb{E}_{\tau \sim p_\pi(\tau|s)} [\sum_{t=T}^H\gamma^{t-T}r_t(a_t, s_t)]\)"
 
-RL: State-action value fuction, "\(Q^\pi(a, s) = \mathbb{E}_{\tau \sim p_\pi(\tau|a, s)} [\sum_{t=T}^H \gamma^{t-T}r_t(a_t, s_t)]\)"
+RL: State-action value function, "\(Q^\pi(a, s) = \mathbb{E}_{\tau \sim p_\pi(\tau|a, s)} [\sum_{t=T}^H \gamma^{t-T}r_t(a_t, s_t)]\)"
 
 RL: Model-free, Not expliclity modeling the environment's transition probabilities \(T\).
 
@@ -166,7 +166,7 @@ RL: Model-based, Expliclity modeling the environment's transition probabilities 
 
 RL: Policy gradient, Explicitly modeling the policy \(\pi\) and update its parameters \(\theta\) based on the estimated gradient of the rewards.
 
-RL: Q-Learning, Explicitly modeling the Q-function \(Q\) and update its parameters \(\theta\) based on the estimated gradient of the rewards. The policy is implictly defined as an arg-max over the Q-function.
+RL: Q-Learning, Explicitly modeling the Q-function \(Q\) and update its parameters \(\theta\) based on the estimated gradient of the rewards. The policy is implicitly defined as an arg-max over the Q-function.
 
 RL: Actor-critic, Explicitly modeling the policy function and either of the Q-function or the V-function. Take turns optimizing.
 
