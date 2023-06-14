@@ -31,8 +31,8 @@ Joint entropy, "\(\mathbb{H}(X, Y) := -\sum_{\mathcal{X}, \mathcal{Y}} p(X=x, Y=
 
 Conditional entropy, "
 \(\begin{aligned} \mathbb{H}(X|Y) &:=
-\sum_{x \in \mathcal{X}, y \in \mathcal{Y}} p(x, y) \log p(x|y) \end{aligned} \\
-&= \mathbb{H}(X, Y) - \mathbb{H}(Y)\)"
+\sum_{x \in \mathcal{X}, y \in \mathcal{Y}} p(x, y) \log p(x|y) \\
+&= \mathbb{H}(X, Y) - \mathbb{H}(Y) \end{aligned} \)"
 
 KL-divergence between \(p\) and \(q\), "\( D_{KL}(p\|\|q) := \sum_{\mathcal{X}} p(X=x) \log_2 \frac{p(X=x)}{q(X=x)} = \mathbb{H}(p, q) - \mathbb{H}(p) \)"
 Forwards KL-divergence, Approximating \(p\) with \(q\) by minimizing \(D_{KL}(p\|q)\) w.r.t. \(q\)
@@ -95,7 +95,7 @@ Definition of convex function \(f\), "
 2. Defined on a convex set and \(\forall x, y \in \mathcal{S}, \forall \lambda \in [0, 1]: f(\lambda x + (1 - \lambda) y) \leq \lambda f(x) + (1 - \lambda)f(y)\)
 "
 
-A twice diferentiable function \(f\) is convex iff its Hessian, is positive semi-definite for all \(x \in dom(f)\)
+A twice differentiable function \(f\) is convex iff its Hessian, is positive semi-definite for all \(x \in dom(f)\)
 Lipschitz constant \(L\) of a function \(f\), Characterizes the degree of smoothness s.t. \(|f(x_1) - f(x_2)| \leq L |x_1 - x_2| \)
 Momentum in gradient descent, Exponentially weighted moving average of past gradients \(m_t = g_{t-1} + m_{t-1} \beta\)
 First-order methods, rely on evaluation of the gradient of the function
@@ -118,7 +118,7 @@ This approach is considered to employ an 'adaptive learning rate' and can be vie
 ADAM, "Short for 'Adaptive moment estimation' computes an EMWA of the gradients and squared gradients:
 \(m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t\)
 \(s_t = \beta_2 s_{t-1} + (1 - \beta_2) g_t^2\)
-\(\theta_t = \theta_{t-1} - \rho_t \frac{1}\sqrt{s_t} + \epsilon} m_t\)
+\(\theta_t = \theta_{t-1} - \rho_t \frac{1}{\sqrt{s_t} + \epsilon} m_t\)
 "
 
 EM algorithm, "Bound optimization algorithm assuming missing/hidden/latent variables in the joint distribution.
@@ -184,7 +184,7 @@ Linear Discriminant Analysis, "Generative classifier where the class posterior i
 
 Difference between LDA and logistic regression, "While both have the same form for the class posterior
 \(p(y=c|x;\theta)\), they optimize different objectives. LDA maximizes the joint likelihood \(p(x, y | \theta)\)
-while logistic regression maximized the conditional likelihood \(p(y|x,w)\)."
+while logistic regression maximizes the conditional likelihood \(p(y|x,w)\)."
 
 Naive Bayes assumption, "The features are conditionally independent on each other, conditioned on the label."
 Ways to compute pesudo-inverse in OLS, "QR or SVD decomposition of pseudo-inverse"
