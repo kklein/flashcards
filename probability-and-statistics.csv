@@ -43,3 +43,5 @@ Example of a biased but consistent estimator, "Assume \(X_i \sim \mathcal{U}(0, 
 
 Example of an unbiased but inconsistent estimator, "Given a series of \(n\) numbers, we would like to estimate the true underlying mean.
 We can define the estimator to be the most recently drawn number."
+
+Example of a simple Bayesian but non-generative model, "Linear regression where the \(X_i\) are considered constants and the weights \(w\) are considered random variables."
