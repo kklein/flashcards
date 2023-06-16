@@ -1,0 +1,15 @@
+repos:
+  - repo: https://github.com/Quantco/pre-commit-mirrors-typos
+    rev: 1.13.20
+    hooks:
+      - id: typos-conda
+        exclude: "french.csv"
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.4
+    hooks:
+      - id: codespell
+        exclude: "french.csv"
+  - repo: https://github.com/kklein/anki-csv
+    rev: 0.0.3
+    hooks:
+      - id: anki-csv
