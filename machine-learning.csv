@@ -1,17 +1,19 @@
-Reinforcement Learning vs Supervised Learning, Learning with a critic vs learning with a teacher
-\(TFIDF_{ij} \) term \(i \) document \(j\), \( \frac{log(TF_{ij} + 1)}{log(\frac{n_{docs}}{n_{docs \text{ with term } i}})}\)
-Logistic function; a sigmoid function, \(\frac{1}{1+e^{-x}}\)
-Sofmax of vector \(a\), \(S(a) = [\frac{e^{a_1}}{\sum_{c=1}^C e^{a_c}}  \dots \frac{e^{a_C}}{\sum_{c=1}^C e^{a_c}} ]\) where \(a\) is called logits or generalized log odds
-Logit, \(\sigma^{-1}(p) = \log(\frac{p}{1-p})\)
+Reinforcement Learning vs Supervised Learning,Learning with a critic vs learning with a teacher
+\(TFIDF_{ij} \) term \(i \) document \(j\),\( \frac{log(TF_{ij} + 1)}{log(\frac{n_{docs}}{n_{docs \text{ with term } i}})}\)
+Logistic function; a sigmoid function,\(\frac{1}{1+e^{-x}}\)
+Sofmax of vector \(a\),\(S(a) = [\frac{e^{a_1}}{\sum_{c=1}^C e^{a_c}}  \dots \frac{e^{a_C}}{\sum_{c=1}^C e^{a_c}} ]\) where \(a\) is called logits or generalized log odds
+Logit,\(\sigma^{-1}(p) = \log(\frac{p}{1-p})\)
 
-Weak supervision, Using metadata as labels for data; e.g. hashtags associated with a picture
+Weak supervision,"Using metadata as labels for data
+E.g. hashtags associated with a picture"
+
 Paradigms of self-supervision in CV,"1. Invariance (function of input should equal function of perturbed input)
 2. Pretext tasks (predicting properties)"
 
-Invariance, \(f(g(x)) = f(x)\)
-Equivariance, \(f(g(x)) = g(f(x))\)
-Topology (informal), Geometric notion of neighborhood without notion of distance
-Manifold (informal), Topological space which resembles a Euclidean space locally; near each point.
+Invariance,\(f(g(x)) = f(x)\)
+Equivariance,\(f(g(x)) = g(f(x))\)
+Topology (informal),Geometric notion of neighborhood without notion of distance
+Manifold (informal),"Topological space which resembles a Euclidean space locally, near each point"
 
 LIME explanation,"\( \xi(x) = argmin_{g' \in G} \mathcal{L}(f, g', \pi_x) + \Omega(g')\) with
 - \(f\), the original model
@@ -23,18 +25,17 @@ LIME explanation,"\( \xi(x) = argmin_{g' \in G} \mathcal{L}(f, g', \pi_x) + \Ome
 Shapley value,"\( \psi_i(v) = \sum_{S \subset N \setminus \{i\}} {|N| \choose 1, |S|, n-|S|-1}^{-1} (v(S \cup \{i\}) - v(S)) \)
 for player \(i \in N\) wrt payoff \(v\)"
 
-Entropy of a discrete random variable \(X\) with distribution \(p\), \(\mathbb{H}(X) = \mathbb{H}(p) = -\sum_{x \in \mathcal{X}}p(x)\log(p(x)) = \mathbb{E}[-\log(p(x))]\)
+Entropy of a discrete random variable \(X\) with distribution \(p\),\(\mathbb{H}(X) = \mathbb{H}(p) = -\sum_{x \in \mathcal{X}}p(x)\log(p(x)) = \mathbb{E}[-\log(p(x))]\)
 Cross-entropy between discrete distributions \(p\) and \(q\) with support \(\mathcal{X}\),"\(\mathbb{H}(p, q) = -\sum_{x \in \mathcal{X}} p(x) \log q(x)\)"
 Joint entropy,"\(\mathbb{H}(X, Y) := -\sum_{\mathcal{X}, \mathcal{Y}} p(X=x, Y=y)\log_2 p(X=x, Y=y)\)"
 
-Conditional entropy,"
-\(\begin{aligned} \mathbb{H}(X|Y) &:=
+Conditional entropy,"\(\begin{aligned} \mathbb{H}(X|Y) &:=
 \sum_{x \in \mathcal{X}, y \in \mathcal{Y}} p(x, y) \log p(x|y) \\
 &= \mathbb{H}(X, Y) - \mathbb{H}(Y) \end{aligned} \)"
 
 KL-divergence between \(p\) and \(q\),"\( D_{KL}(p\|\|q) := \sum_{\mathcal{X}} p(X=x) \log_2 \frac{p(X=x)}{q(X=x)} = \mathbb{H}(p, q) - \mathbb{H}(p) \)"
-Forwards KL-divergence, Approximating \(p\) with \(q\) by minimizing \(D_{KL}(p\|q)\) w.r.t. \(q\)
-Backwards KL-divergence, Approximating \(p\) with \(q\) by minimizing \(D_{KL}(q\|p)\) w.r.t. \(q\)
+Forwards KL-divergence,Approximating \(p\) with \(q\) by minimizing \(D_{KL}(p\|q)\) w.r.t. \(q\)
+Backwards KL-divergence,Approximating \(p\) with \(q\) by minimizing \(D_{KL}(q\|p)\) w.r.t. \(q\)
 (Expected) Mutual Information a.k.a. Information Gain,"\(\begin{aligned} \mathbb{I}(X;Y) &:= D_{KL}(p(X, Y) \| p(X)p(Y)) \\ &= \mathbb{H}(X) - \mathbb{H}(X\|Y) \\ &= \mathbb{H}(X) + \mathbb{H}(Y) - \mathbb{H}(X, Y) \end{aligned}\)"
 Conditional Mutual Information,"\(\begin{aligned} \mathbb{I}(X;Y|Z) &:= \mathbb{E}_{p(Z)} [ \mathbb{I}(X;Y) | Z] \\ &= \mathbb{I}(Y; X, Z) - \mathbb{I}(Y;Z) \end{aligned} \)"
 
@@ -47,10 +48,10 @@ Interpretation of KL-divergence,"1. Divergence measure quantifying how far \(q\)
 Interpretation of Expected Mutual Information,"1. Information gain if we switch from a model with independent \(p(x)\) and \(p(y)\) to a model with joint \(p(x, y)\).
 2. Reduction of uncertainty in \(X\) after observing \(Y\) and vice versa."
 
-Difference between contextual bandit and RL,"In RL; an action in a given state influences the reward as well as the future state. In CB; the action only influences the reward; not the future state."
+Difference between contextual bandit and RL,"In RL, an action in a given state influences the reward as well as the future state. In CB; the action only influences the reward; not the future state."
 
 Gram Matrix,"\(A^TA\), always positive semidefinite"
-Orthogonal matrix \(U\), \(U^T U = U U^T = I\)
+Orthogonal matrix \(U\),\(U^T U = U U^T = I\)
 Eigenvalue decomposition,"Of a real, symmetrix matrix \(A\): \(A = U \Lambda U^T\), where \(U\) is orthonormal"
 
 Singular value decomposision,"Of a real, \(m \times n\) matrix \(A\):
@@ -61,7 +62,7 @@ Singular value decomposision,"Of a real, \(m \times n\) matrix \(A\):
 
 Rank-nullity theorem,"For \(A: m \times n\), \(dim(range(A)) + dim(nullspace(A)) = r + (n - r) = n\)"
 LU factorization,"Any square matrix can be factorized into a product of a lower triangular and upper trinagular matrix."
-Partial derivative of \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) wrt \(x_i\)," \(\frac{\partial f}{\partial x_i} = \lim_{h \rightarrow 0} \frac{f(x + h e_i) - f(x)}{h}\)"
+Partial derivative of \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) wrt \(x_i\),"\(\frac{\partial f}{\partial x_i} = \lim_{h \rightarrow 0} \frac{f(x + h e_i) - f(x)}{h}\)"
 
 Gradient of \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) wrt point \(x\),"\(\nabla f = \frac{\partial f}{\partial x} = (\frac{\partial f}{\partial x_i}, \dots, \frac{\partial f}{\partial x_n})^T\)
 Note that \(\nabla f: \mathbb{R}^n \rightarrow \mathbb{R}^n\) is a vector field."
@@ -89,18 +90,18 @@ Convex set \(\mathcal{S}\),"\(\forall x, x' \in \mathcal{S}, \forall \lambda \in
 Definition of convex function \(f\),"1. The epigraph of the function, i.e. all point lying above it, defines a convex set.
 2. Defined on a convex set and \(\forall x, y \in \mathcal{S}, \forall \lambda \in [0, 1]: f(\lambda x + (1 - \lambda) y) \leq \lambda f(x) + (1 - \lambda)f(y)\)"
 
-A twice differentiable function \(f\) is convex iff its Hessian, is positive semi-definite for all \(x \in dom(f)\)
-Lipschitz constant \(L\) of a function \(f\), Characterizes the degree of smoothness s.t. \(|f(x_1) - f(x_2)| \leq L |x_1 - x_2| \)
-Momentum in gradient descent, Exponentially weighted moving average of past gradients \(m_t = g_{t-1} + m_{t-1} \beta\)
-First-order methods, rely on evaluation of the gradient of the function
-Second-order methods, rely on evaluation of the Hessian of the function
-Newton's method, \(\theta_{t+1} = \theta_t - \rho_t H_t^{-1} g_t\) where \(H_t\) is assumed to be positive-definite.
+A twice differentiable function \(f\) is convex iff its Hessian,is positive semi-definite for all \(x \in dom(f)\)
+Lipschitz constant \(L\) of a function \(f\),characterizes the degree of smoothness s.t. \(|f(x_1) - f(x_2)| \leq L |x_1 - x_2| \)
+Momentum in gradient descent,Exponentially weighted moving average of past gradients \(m_t = g_{t-1} + m_{t-1} \beta\)
+First-order methods,rely on evaluation of the gradient of the function
+Second-order methods,rely on evaluation of the Hessian of the function
+Newton's method,\(\theta_{t+1} = \theta_t - \rho_t H_t^{-1} g_t\) where \(H_t\) is assumed to be positive-definite.
 
 Stochastic Gradient Descent,"Compute an unbiased estimate of the gradient of \(\mathcal{L}\) by only using one sample \(z_t \sim q\) in the loss function.
 It is necessary that \(q\) is independent of the parameters to be optimized. This results in:
 \(\theta_{t+1} = \theta_t - \rho_t \nabla \mathcal{L}(\theta_t, z_t)\)"
 
-Learning rate warmup, Quickly increasing the learning rate and then gradually decreasing it again.
+Learning rate warmup,Quickly increasing the learning rate and then gradually decreasing it again
 
 ADAGRAD,"\(\theta_{t+1, d} = \theta_{t, d} - \rho_t \frac{1}{\sqrt{s_{t, d} + \epsilon}}g_{t, d}\)
 where
@@ -137,27 +138,27 @@ RL: Markov Decision Process,"\((\mathcal{S}, \mathcal{A}, T, d_0, r, \gamma)\) w
 
 RL: policy,"\(\pi: \mathcal{S} \times \mathcal{A} \rightarrow [0, 1]\)"
 
-Online RL, The policy is updated after every observation.
-Off-policy RL, A buffer of data with a fixed policy is gathered before the policy is updated.
-Offline RL, The to-be-learned policy is never actually rolled out to interact with the environment in the training process.
+Online RL,The policy is updated after every observation.
+Off-policy RL,A buffer of data with a fixed policy is gathered before the policy is updated.
+Offline RL,The to-be-learned policy is never actually rolled out to interact with the environment in the training process.
 
 RL: State value function,"\(V^\pi(s) = \mathbb{E}_{\tau \sim p_\pi(\tau|s)} [\sum_{t=T}^H\gamma^{t-T}r_t(a_t, s_t)]\)"
 
 RL: State-action value function,"\(Q^\pi(a, s) = \mathbb{E}_{\tau \sim p_\pi(\tau|a, s)} [\sum_{t=T}^H \gamma^{t-T}r_t(a_t, s_t)]\)"
 
-RL: Model-free, Not expliclity modeling the environment's transition probabilities \(T\).
+RL: Model-free,Not expliclity modeling the environment's transition probabilities \(T\).
 
-RL: Model-based, Expliclity modeling the environment's transition probabilities \(T\).
+RL: Model-based,Expliclity modeling the environment's transition probabilities \(T\).
 
-RL: Policy gradient, Explicitly modeling the policy \(\pi\) and update its parameters \(\theta\) based on the estimated gradient of the rewards.
+RL: Policy gradient,Explicitly modeling the policy \(\pi\) and update its parameters \(\theta\) based on the estimated gradient of the rewards.
 
-RL: Q-Learning, Explicitly modeling the Q-function \(Q\) and update its parameters \(\theta\) based on the estimated gradient of the rewards. The policy is implicitly defined as an arg-max over the Q-function.
+RL: Q-Learning,Explicitly modeling the Q-function \(Q\) and update its parameters \(\theta\) based on the estimated gradient of the rewards. The policy is implicitly defined as an arg-max over the Q-function.
 
-RL: Actor-critic, Explicitly modeling the policy function and either of the Q-function or the V-function. Take turns optimizing.
+RL: Actor-critic,Explicitly modeling the policy function and either of the Q-function or the V-function. Take turns optimizing.
 
-Main methodological challenge of offline RL, Distributional shift
+Main methodological challenge of offline RL,Distributional shift
 
-Discriminative classifier, Models \(p(y|x;\theta)\) directly
+Discriminative classifier,Models \(p(y|x;\theta)\) directly
 
 Generative classifier,"Models \(p(y|x;\theta)\) via Bayes rule:
 \(\frac{p(x|y=c;\theta)p(y=c;\theta)}{\sum_{c'} p(x|y=c';\theta)p(y=c';\theta) } \)
@@ -180,8 +181,8 @@ It measures the variance in predictions relative to a constant prediction."
 
 Prior for ridge/l2 regression,"Normal"
 Prior for lasso/l1 regression,"Laplace"
-Geometric intuition for which l1 regularization is sparser than l2 regularization, The corners of the diamond are more likely to intersect with an ellipsis than arbitrary points of a ball - especially in high dimensions.
-Reason for which we don't use l0 regularization for sparse weights in linear regression, The problem would become non-convex.
+Geometric intuition for which l1 regularization is sparser than l2 regularization,The corners of the diamond are more likely to intersect with an ellipsis than arbitrary points of a ball - especially in high dimensions.
+Reason for which we don't use l0 regularization for sparse weights in linear regression,The problem would become non-convex.
 
 Methods of regularization for linear regression,"1. L1 (lasso)
 2. L2 (ridge)

@@ -10,6 +10,6 @@ repos:
       - id: codespell
         exclude: "french.csv"
   - repo: https://github.com/kklein/anki-csv
-    rev: 0.0.3
+    rev: 0.0.4
     hooks:
       - id: anki-csv

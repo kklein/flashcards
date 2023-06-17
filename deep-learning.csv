@@ -1,10 +1,18 @@
-Downsampling in CNN architectures, 1. Kernels with stride > 1; 2. Pooling layers
-Complexity metrics for NNs, 1. #parameters; 2. #operations; 3. activation memory used
-Original motivation for skip-connections, Backpropagation didn't work properly when too many layers were stacked - presumably for numerical reasons
-Depthwise convoluton, 1. Separate kernel per channel; 2. Aggregation operation; Can have large speedup but is an approximation to conventional convolution
-Normalization, \( x_i = \frac{x_i - \hat{\mu}}{\sqrt{\hat{\sigma}^2} + \epsilon}\) where \(\epsilon\) is a small constant added for numerical purposes
-Batch normalization, Normalization (centering by mean; scaling by variance) of input for height and width and within-batch index per fixed channel
-Layer normalization, Normalization (centering by mean; scaling by variance) of input for height and width and channel per fixed within-batch index
-Instance normalization, Normalization (centering by mean; scaling by variance) of input for width and height per fixed channel and within-batch index
-Group normalization, Normalization (centering by mean; scaling by variance) of input for width and height and within-cluster index per channel-cluster and within-batch index
-Position normalization, Normalization (centering by mean; scaling by variance) of input for channel per fixed height and weight and within-batch index
+Downsampling in CNN architectures,"1. Kernels with stride > 1
+2. Pooling layers"
+
+Complexity metrics for NNs,"1. #parameters
+2. #operations
+3. activation memory used"
+
+Original motivation for skip-connections,"Backpropagation didn't work properly when too many layers were stacked - presumably for numerical reasons"
+
+Depthwise convoluton,"1. Separate kernel per channel
+2. Aggregation operation; Can have large speedup but is an approximation to conventional convolution"
+
+Normalization,\( x_i = \frac{x_i - \hat{\mu}}{\sqrt{\hat{\sigma}^2} + \epsilon}\) where \(\epsilon\) is a small constant added for numerical purposes
+Batch normalization,Normalization (centering by mean; scaling by variance) of input for height and width and within-batch index per fixed channel
+Layer normalization,Normalization (centering by mean; scaling by variance) of input for height and width and channel per fixed within-batch index
+Instance normalization,Normalization (centering by mean; scaling by variance) of input for width and height per fixed channel and within-batch index
+Group normalization,Normalization (centering by mean; scaling by variance) of input for width and height and within-cluster index per channel-cluster and within-batch index
+Position normalization,Normalization (centering by mean; scaling by variance) of input for channel per fixed height and weight and within-batch index
