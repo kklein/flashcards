@@ -5,7 +5,7 @@ Sofmax of vector \(a\), \(S(a) = [\frac{e^{a_1}}{\sum_{c=1}^C e^{a_c}}  \dots \f
 Logit, \(\sigma^{-1}(p) = \log(\frac{p}{1-p})\)
 
 Weak supervision, Using metadata as labels for data; e.g. hashtags associated with a picture
-Paradigms of self-supervision in CV, "1. Invariance (function of input should equal function of perturbed input)
+Paradigms of self-supervision in CV,"1. Invariance (function of input should equal function of perturbed input)
 2. Pretext tasks (predicting properties)"
 
 Invariance, \(f(g(x)) = f(x)\)
@@ -13,87 +13,81 @@ Equivariance, \(f(g(x)) = g(f(x))\)
 Topology (informal), Geometric notion of neighborhood without notion of distance
 Manifold (informal), Topological space which resembles a Euclidean space locally; near each point.
 
-LIME explanation, "\( \xi(x) = argmin_{g' \in G} \mathcal{L}(f, g', \pi_x) + \Omega(g')\) with
+LIME explanation,"\( \xi(x) = argmin_{g' \in G} \mathcal{L}(f, g', \pi_x) + \Omega(g')\) with
 - \(f\), the original model
 - \(G\) the class of possible, interpretable surrogate models
 - \(\Omega(g)\), a measure of complexity for \(g \in G\)
 - \(\pi_x(z)\) a proximity measure of \(z\) wrt data point \(x\)
-- \(\mathcal{L}(f, g, \pi_x)\) a measure of how unfaithful a \(g \in G\) is to \(f\) in the locality defined by \(\pi_x\)
-"
+- \(\mathcal{L}(f, g, \pi_x)\) a measure of how unfaithful a \(g \in G\) is to \(f\) in the locality defined by \(\pi_x\)"
 
-Shapley value, "\( \psi_i(v) = \sum_{S \subset N \setminus \{i\}} {|N| \choose 1, |S|, n-|S|-1}^{-1} (v(S \cup \{i\}) - v(S)) \)
-for player \(i \in N\) wrt payoff \(v\)
-"
+Shapley value,"\( \psi_i(v) = \sum_{S \subset N \setminus \{i\}} {|N| \choose 1, |S|, n-|S|-1}^{-1} (v(S \cup \{i\}) - v(S)) \)
+for player \(i \in N\) wrt payoff \(v\)"
 
 Entropy of a discrete random variable \(X\) with distribution \(p\), \(\mathbb{H}(X) = \mathbb{H}(p) = -\sum_{x \in \mathcal{X}}p(x)\log(p(x)) = \mathbb{E}[-\log(p(x))]\)
-Cross-entropy between discrete distributions \(p\) and \(q\) with support \(\mathcal{X}\), "\(\mathbb{H}(p, q) = -\sum_{x \in \mathcal{X}} p(x) \log q(x)\)"
-Joint entropy, "\(\mathbb{H}(X, Y) := -\sum_{\mathcal{X}, \mathcal{Y}} p(X=x, Y=y)\log_2 p(X=x, Y=y)\) "
+Cross-entropy between discrete distributions \(p\) and \(q\) with support \(\mathcal{X}\),"\(\mathbb{H}(p, q) = -\sum_{x \in \mathcal{X}} p(x) \log q(x)\)"
+Joint entropy,"\(\mathbb{H}(X, Y) := -\sum_{\mathcal{X}, \mathcal{Y}} p(X=x, Y=y)\log_2 p(X=x, Y=y)\)"
 
-Conditional entropy, "
+Conditional entropy,"
 \(\begin{aligned} \mathbb{H}(X|Y) &:=
 \sum_{x \in \mathcal{X}, y \in \mathcal{Y}} p(x, y) \log p(x|y) \\
 &= \mathbb{H}(X, Y) - \mathbb{H}(Y) \end{aligned} \)"
 
-KL-divergence between \(p\) and \(q\), "\( D_{KL}(p\|\|q) := \sum_{\mathcal{X}} p(X=x) \log_2 \frac{p(X=x)}{q(X=x)} = \mathbb{H}(p, q) - \mathbb{H}(p) \)"
+KL-divergence between \(p\) and \(q\),"\( D_{KL}(p\|\|q) := \sum_{\mathcal{X}} p(X=x) \log_2 \frac{p(X=x)}{q(X=x)} = \mathbb{H}(p, q) - \mathbb{H}(p) \)"
 Forwards KL-divergence, Approximating \(p\) with \(q\) by minimizing \(D_{KL}(p\|q)\) w.r.t. \(q\)
 Backwards KL-divergence, Approximating \(p\) with \(q\) by minimizing \(D_{KL}(q\|p)\) w.r.t. \(q\)
-(Expected) Mutual Information a.k.a. Information Gain, "\(\begin{aligned} \mathbb{I}(X;Y) &:= D_{KL}(p(X, Y) \| p(X)p(Y)) \\ &= \mathbb{H}(X) - \mathbb{H}(X\|Y) \\ &= \mathbb{H}(X) + \mathbb{H}(Y) - \mathbb{H}(X, Y) \end{aligned}\)"
-Conditional Mutual Information, "\(\begin{aligned} \mathbb{I}(X;Y|Z) &:= \mathbb{E}_{p(Z)} [ \mathbb{I}(X;Y) | Z] \\ &= \mathbb{I}(Y; X, Z) - \mathbb{I}(Y;Z) \end{aligned} \)"
+(Expected) Mutual Information a.k.a. Information Gain,"\(\begin{aligned} \mathbb{I}(X;Y) &:= D_{KL}(p(X, Y) \| p(X)p(Y)) \\ &= \mathbb{H}(X) - \mathbb{H}(X\|Y) \\ &= \mathbb{H}(X) + \mathbb{H}(Y) - \mathbb{H}(X, Y) \end{aligned}\)"
+Conditional Mutual Information,"\(\begin{aligned} \mathbb{I}(X;Y|Z) &:= \mathbb{E}_{p(Z)} [ \mathbb{I}(X;Y) | Z] \\ &= \mathbb{I}(Y; X, Z) - \mathbb{I}(Y;Z) \end{aligned} \)"
 
-Interpretation of entropy, "1. Measure of uncertainty/lack of predictability.
+Interpretation of entropy,"1. Measure of uncertainty/lack of predictability.
 2. Expected number of bits needed to losslessly encode a signal."
 
-Interpretation of KL-divergence, "1. Divergence measure quantifying how far \(q\) is from \(p\).
+Interpretation of KL-divergence,"1. Divergence measure quantifying how far \(q\) is from \(p\).
 2. Extra number of expected bits necessary to encode signal from \(p\) with \(q\)."
 
-Interpretation of Expected Mutual Information, "1. Information gain if we switch from a model with independent \(p(x)\) and \(p(y)\) to a model with joint \(p(x, y)\).
+Interpretation of Expected Mutual Information,"1. Information gain if we switch from a model with independent \(p(x)\) and \(p(y)\) to a model with joint \(p(x, y)\).
 2. Reduction of uncertainty in \(X\) after observing \(Y\) and vice versa."
 
-Difference between contextual bandit and RL, "In RL; an action in a given state influences the reward as well as the future state. In CB; the action only influences the reward; not the future state."
+Difference between contextual bandit and RL,"In RL; an action in a given state influences the reward as well as the future state. In CB; the action only influences the reward; not the future state."
 
-Gram Matrix, "\(A^TA\), always positive semidefinite"
+Gram Matrix,"\(A^TA\), always positive semidefinite"
 Orthogonal matrix \(U\), \(U^T U = U U^T = I\)
-Eigenvalue decomposition, "Of a real, symmetrix matrix \(A\): \(A = U \Lambda U^T\), where \(U\) is orthonormal"
+Eigenvalue decomposition,"Of a real, symmetrix matrix \(A\): \(A = U \Lambda U^T\), where \(U\) is orthonormal"
 
-Singular value decomposision, "Of a real, \(m \times n\) matrix \(A\):
+Singular value decomposision,"Of a real, \(m \times n\) matrix \(A\):
 \(A = USV^T\), where
 \(U: m \times m\) has orthonormal columns s.t. \(U^TU = I_m\)
 \(V: n \times n\) has orthonormal columns and rows, s.t. \(V^TV = VV^T = I_n\)
-\(S: m \times n\) has \(r = min(m, n)\) sigular values on the diagonal
-"
+\(S: m \times n\) has \(r = min(m, n)\) sigular values on the diagonal"
 
-Rank-nullity theorem, "For \(A: m \times n\), \(dim(range(A)) + dim(nullspace(A)) = r + (n - r) = n\)"
-LU factorization, "Any square matrix can be factorized into a product of a lower triangular and upper trinagular matrix."
-Partial derivative of \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) wrt \(x_i\), " \(\frac{\partial f}{\partial x_i} = \lim_{h \rightarrow 0} \frac{f(x + h e_i) - f(x)}{h}\)"
+Rank-nullity theorem,"For \(A: m \times n\), \(dim(range(A)) + dim(nullspace(A)) = r + (n - r) = n\)"
+LU factorization,"Any square matrix can be factorized into a product of a lower triangular and upper trinagular matrix."
+Partial derivative of \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) wrt \(x_i\)," \(\frac{\partial f}{\partial x_i} = \lim_{h \rightarrow 0} \frac{f(x + h e_i) - f(x)}{h}\)"
 
-Gradient of \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) wrt point \(x\), "\(\nabla f = \frac{\partial f}{\partial x} = (\frac{\partial f}{\partial x_i}, \dots, \frac{\partial f}{\partial x_n})^T\)
+Gradient of \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) wrt point \(x\),"\(\nabla f = \frac{\partial f}{\partial x} = (\frac{\partial f}{\partial x_i}, \dots, \frac{\partial f}{\partial x_n})^T\)
 Note that \(\nabla f: \mathbb{R}^n \rightarrow \mathbb{R}^n\) is a vector field."
 
-Jacobian matrix, "Of a function \(f: \mathbb{R}^n \rightarrow \mathbb{R}^m\) is an \(m \times n\) matrix of partial derivatives:
+Jacobian matrix,"Of a function \(f: \mathbb{R}^n \rightarrow \mathbb{R}^m\) is an \(m \times n\) matrix of partial derivatives:
 \(J_f(x) = \frac{\partial f}{\partial x^T} =  \begin{pmatrix}
 \frac{\partial f_1}{\partial x_1} & \dots & \frac{\partial f_1}{\partial x_n}\\
 \dots & \dots & \dots \\
 \frac{\partial f_m}{\partial x_1} & \dots & \frac{\partial f_m}{\partial x_n}
 \end{pmatrix}\)"
 
-Hessian matrix, "Of a function \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) is an \(n \times n\) matrix of partial derivatives:
+Hessian matrix,"Of a function \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) is an \(n \times n\) matrix of partial derivatives:
 \(H_f(x) = \frac{\partial^2 f}{\partial x^2} = \nabla^2 f = \begin{pmatrix}
 \frac{\partial^2 f}{\partial x_1^2} & \dots & \frac{\partial^2 f}{\partial x_1 \partial x_n}\\
 \dots & \dots & \dots \\
 \frac{\partial f^2}{\partial x_n \partial x_1} & \dots & \frac{\partial^2 f}{\partial x_n^2}
 \end{pmatrix}\)"
 
-Necessary and sufficient conditions for local minimum at \(\theta^*\), "
+Necessary and sufficient conditions for local minimum at \(\theta^*\),"
 Necessary: \(\nabla\mathcal{L}(\theta)|_{\theta^*} = 0\), \(H(\theta^*)\) positive semi-definite
-Sufficient: \(\nabla\mathcal{L}(\theta)|_{\theta^*} = 0\), \(H(\theta^*)\) positive definite
-"
+Sufficient: \(\nabla\mathcal{L}(\theta)|_{\theta^*} = 0\), \(H(\theta^*)\) positive definite"
 
-Convex set \(\mathcal{S}\), "\(\forall x, x' \in \mathcal{S}, \forall \lambda \in [0, 1]: \lambda x + (1 - \lambda)x' \in \mathcal{S}\)"
+Convex set \(\mathcal{S}\),"\(\forall x, x' \in \mathcal{S}, \forall \lambda \in [0, 1]: \lambda x + (1 - \lambda)x' \in \mathcal{S}\)"
 
-Definition of convex function \(f\), "
-1. The epigraph of the function, i.e. all point lying above it, defines a convex set.
-2. Defined on a convex set and \(\forall x, y \in \mathcal{S}, \forall \lambda \in [0, 1]: f(\lambda x + (1 - \lambda) y) \leq \lambda f(x) + (1 - \lambda)f(y)\)
-"
+Definition of convex function \(f\),"1. The epigraph of the function, i.e. all point lying above it, defines a convex set.
+2. Defined on a convex set and \(\forall x, y \in \mathcal{S}, \forall \lambda \in [0, 1]: f(\lambda x + (1 - \lambda) y) \leq \lambda f(x) + (1 - \lambda)f(y)\)"
 
 A twice differentiable function \(f\) is convex iff its Hessian, is positive semi-definite for all \(x \in dom(f)\)
 Lipschitz constant \(L\) of a function \(f\), Characterizes the degree of smoothness s.t. \(|f(x_1) - f(x_2)| \leq L |x_1 - x_2| \)
@@ -102,63 +96,54 @@ First-order methods, rely on evaluation of the gradient of the function
 Second-order methods, rely on evaluation of the Hessian of the function
 Newton's method, \(\theta_{t+1} = \theta_t - \rho_t H_t^{-1} g_t\) where \(H_t\) is assumed to be positive-definite.
 
-Stochastic Gradient Descent, "Compute an unbiased estimate of the gradient of \(\mathcal{L}\) by only using one sample \(z_t \sim q\) in the loss function.
+Stochastic Gradient Descent,"Compute an unbiased estimate of the gradient of \(\mathcal{L}\) by only using one sample \(z_t \sim q\) in the loss function.
 It is necessary that \(q\) is independent of the parameters to be optimized. This results in:
-\(\theta_{t+1} = \theta_t - \rho_t \nabla \mathcal{L}(\theta_t, z_t)\)
-"
+\(\theta_{t+1} = \theta_t - \rho_t \nabla \mathcal{L}(\theta_t, z_t)\)"
 
 Learning rate warmup, Quickly increasing the learning rate and then gradually decreasing it again.
 
-ADAGRAD, "\(\theta_{t+1, d} = \theta_{t, d} - \rho_t \frac{1}{\sqrt{s_{t, d} + \epsilon}}g_{t, d}\)
+ADAGRAD,"\(\theta_{t+1, d} = \theta_{t, d} - \rho_t \frac{1}{\sqrt{s_{t, d} + \epsilon}}g_{t, d}\)
 where
 \(s_{t, d} = \sum_{t'=1}^t g_{t', d}^2\)
-This approach is considered to employ an 'adaptive learning rate' and can be viewed as preconditioned SGD.
-"
+This approach is considered to employ an 'adaptive learning rate' and can be viewed as preconditioned SGD."
 
-ADAM, "Short for 'Adaptive moment estimation' computes an EMWA of the gradients and squared gradients:
+ADAM,"Short for 'Adaptive moment estimation' computes an EMWA of the gradients and squared gradients:
 \(m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t\)
 \(s_t = \beta_2 s_{t-1} + (1 - \beta_2) g_t^2\)
-\(\theta_t = \theta_{t-1} - \rho_t \frac{1}{\sqrt{s_t} + \epsilon} m_t\)
-"
+\(\theta_t = \theta_{t-1} - \rho_t \frac{1}{\sqrt{s_t} + \epsilon} m_t\)"
 
-EM algorithm, "Bound optimization algorithm assuming missing/hidden/latent variables in the joint distribution.
+EM algorithm,"Bound optimization algorithm assuming missing/hidden/latent variables in the joint distribution.
 The goal of EM is to maximize the log likelihood:
 \(LL(\theta) = \sum_{n=1}^N \log p(y_n|\theta) = \sum_{n=1}^N log \sum_{z_n} p(y_n, z_n|\theta)\)
-It does so by estimating the hidden variables in the E-step and compute a parameter estimate (e.g. via MLE or MAP) in the M-step.
-"
+It does so by estimating the hidden variables in the E-step and compute a parameter estimate (e.g. via MLE or MAP) in the M-step."
 
-ELBO, "\(\mathbb{E}_{q_n} [\log p(y_n, z_n | \theta) + \mathbb{H}(q_n)\)
+ELBO,"\(\mathbb{E}_{q_n} [\log p(y_n, z_n | \theta) + \mathbb{H}(q_n)\)
 which can be derived by applying Jensen's inequaklity to the concave log function of the log-likelihood:
 \(LL(\theta) = \sum_{n=1}^N \log p(y_n|\theta) = \sum_{n=1}^N log \sum_{z_n} q_n(z_n) \frac{p(y_n, z_n|\theta)}{q_n(z_n)}
-\geq \sum_n \sum_{z_n} q_n(z_n) \log \frac{p(y_n, z_n | \theta)}{q_n(z_n)} \)
-"
+\geq \sum_n \sum_{z_n} q_n(z_n) \log \frac{p(y_n, z_n | \theta)}{q_n(z_n)} \)"
 
-Objective of RL, "Maximize cumulative reward \(\sum_{t=0}^H \gamma^t r(s_t, a_t)\)"
+Objective of RL,"Maximize cumulative reward \(\sum_{t=0}^H \gamma^t r(s_t, a_t)\)"
 
-Typical methodological challenges of RL, "
-1. Sparse rewards
-2. Credit assignment problem
-"
+Typical methodological challenges of RL,"1. Sparse rewards
+2. Credit assignment problem"
 
-RL: Markov Decision Process, "\((\mathcal{S}, \mathcal{A}, T, d_0, r, \gamma)\)
-where
+RL: Markov Decision Process,"\((\mathcal{S}, \mathcal{A}, T, d_0, r, \gamma)\) where
   - \(\mathcal{S}\) is the state space
   - \(\mathcal{A}\) is the action space
   - \(T\) defines a transition distribution \(p(s_{t+1}|s_t, a_t)\)
   - \(d_0\) defines a distribution over initial states
   - \(r: \mathcal{A} \times \mathcal{S} \rightarrow \mathbb{R}\) is a reward function
-  - \(\gamma \in ]0,1[\) is a discounting constant
-"
+  - \(\gamma \in ]0,1[\) is a discounting constant"
 
-RL: policy, "\(\pi: \mathcal{S} \times \mathcal{A} \rightarrow [0, 1]\)"
+RL: policy,"\(\pi: \mathcal{S} \times \mathcal{A} \rightarrow [0, 1]\)"
 
 Online RL, The policy is updated after every observation.
 Off-policy RL, A buffer of data with a fixed policy is gathered before the policy is updated.
 Offline RL, The to-be-learned policy is never actually rolled out to interact with the environment in the training process.
 
-RL: State value function, "\(V^\pi(s) = \mathbb{E}_{\tau \sim p_\pi(\tau|s)} [\sum_{t=T}^H\gamma^{t-T}r_t(a_t, s_t)]\)"
+RL: State value function,"\(V^\pi(s) = \mathbb{E}_{\tau \sim p_\pi(\tau|s)} [\sum_{t=T}^H\gamma^{t-T}r_t(a_t, s_t)]\)"
 
-RL: State-action value function, "\(Q^\pi(a, s) = \mathbb{E}_{\tau \sim p_\pi(\tau|a, s)} [\sum_{t=T}^H \gamma^{t-T}r_t(a_t, s_t)]\)"
+RL: State-action value function,"\(Q^\pi(a, s) = \mathbb{E}_{\tau \sim p_\pi(\tau|a, s)} [\sum_{t=T}^H \gamma^{t-T}r_t(a_t, s_t)]\)"
 
 RL: Model-free, Not expliclity modeling the environment's transition probabilities \(T\).
 
@@ -174,72 +159,63 @@ Main methodological challenge of offline RL, Distributional shift
 
 Discriminative classifier, Models \(p(y|x;\theta)\) directly
 
-Generative classifier, "Models \(p(y|x;\theta)\) via Bayes rule:
+Generative classifier,"Models \(p(y|x;\theta)\) via Bayes rule:
 \(\frac{p(x|y=c;\theta)p(y=c;\theta)}{\sum_{c'} p(x|y=c';\theta)p(y=c';\theta) } \)
 Where \(p(x|y=c;\theta)\) is called the class-conditional density. The latter can
 be used to generate data, hence the name."
 
-Linear Discriminant Analysis, "Generative classifier where the class posterior is a linear function of \(x\):
+Linear Discriminant Analysis,"Generative classifier where the class posterior is a linear function of \(x\):
 \(\log p(y=c|x;\theta) = w^Tx + const \) where \(w\) is derived from \(\theta\)."
 
-Difference between LDA and logistic regression, "While both have the same form for the class posterior
+Difference between LDA and logistic regression,"While both have the same form for the class posterior
 \(p(y=c|x;\theta)\), they optimize different objectives. LDA maximizes the joint likelihood \(p(x, y | \theta)\)
 while logistic regression maximizes the conditional likelihood \(p(y|x,w)\)."
 
-Naive Bayes assumption, "The features are conditionally independent on each other, conditioned on the label."
-Ways to compute pesudo-inverse in OLS, "QR or SVD decomposition of pseudo-inverse"
+Naive Bayes assumption,"The features are conditionally independent on each other, conditioned on the label."
+Ways to compute pesudo-inverse in OLS,"QR or SVD decomposition of pseudo-inverse"
 
-\(R^2\), "Coefficient of determination
+\(R^2\),"Coefficient of determination
 \(R^2 = 1 - \frac{RSS}{TSS} = 1 - \frac{\sum_{i=1}^N (\hat{y}_i - y_i)^2}{\sum_{i=1}^N (\bar{y} - y_i)^2 }\)
-It measures the variance in predictions relative to a constant prediction.
-"
+It measures the variance in predictions relative to a constant prediction."
 
-Prior for ridge/l2 regression, "Normal"
-Prior for lasso/l1 regression, "Laplace"
+Prior for ridge/l2 regression,"Normal"
+Prior for lasso/l1 regression,"Laplace"
 Geometric intuition for which l1 regularization is sparser than l2 regularization, The corners of the diamond are more likely to intersect with an ellipsis than arbitrary points of a ball - especially in high dimensions.
 Reason for which we don't use l0 regularization for sparse weights in linear regression, The problem would become non-convex.
 
-Methods of regularization for linear regression, "
-1. L1 (lasso)
+Methods of regularization for linear regression,"1. L1 (lasso)
 2. L2 (ridge)
 3. L1 & L2 (ElasticNet)
 4. L1 for feature selection, no regularization for actual weights ('debiasing')
-5. Group LASSO (for highly correlated features or one-hot encoded levels of a categorical)
-"
+5. Group LASSO (for highly correlated features or one-hot encoded levels of a categorical)"
 
-Robust linear regression, "Assumption that the outcome is not Normal-distributed but follows either a
+Robust linear regression,"Assumption that the outcome is not Normal-distributed but follows either a
 Laplace or student-t distribution. Both have heavier tails, which makes the optimization procedure
 less vulnerable to 'outliers'."
 
-Generalized Linear Model, "Conditional version of exponential dispersion family with the natural parameters \(\eta_i\) being linear functions of the input.
+Generalized Linear Model,"Conditional version of exponential dispersion family with the natural parameters \(\eta_i\) being linear functions of the input.
 \( p(y_i|x_i, w, \sigma^2) = exp(\frac{y_i \eta_i - A(\eta_i)}{\sigma^2} + \log h(y_i, \sigma^2) ) \)
-with \(\eta_i = w^Tx\), \(\sigma^2\) the disperson term, \(A(\eta_i)\) the log normalizer and \(\mathcal{T}(y) =y\) the sufficient statistic.
-"
+with \(\eta_i = w^Tx\), \(\sigma^2\) the disperson term, \(A(\eta_i)\) the log normalizer and \(\mathcal{T}(y) =y\) the sufficient statistic."
 
-Link function of GLM, "\(l\) is the link function iff
+Link function of GLM,"\(l\) is the link function iff
 \(\mathbb{E}[y_i|x_i, w, \sigma^2] = A'(\eta_i) = l^{-1}(\eta_i)\)
 E.g. for logistic regression the link function is \(\theta=l(\mu) = logit(\mu) = \log \frac{\mu}{1-\mu}\) and
-the mean (inverse link) function is the sigmoid function: \(l^{-1}(\eta_i) = \frac{e^{\eta_i}}{1 + e^{\eta_i}} \)
-"
+the mean (inverse link) function is the sigmoid function: \(l^{-1}(\eta_i) = \frac{e^{\eta_i}}{1 + e^{\eta_i}} \)"
 
-Deviance, "\(D(y, \hat{\mu}) = 2 \sum_i (\log p(y_i|\mu_i^*) - \log p(y_i|\mu_i)\)
+Deviance,"\(D(y, \hat{\mu}) = 2 \sum_i (\log p(y_i|\mu_i^*) - \log p(y_i|\mu_i)\)
 where \(\mu_i\) is the predicted parameter for the ith sample based on input features \(x_i\) and
 \(\mu_i^*\) is the estimated parameter when using the true output. E.g. in Poisson regression we
-have that \(\mu_i^* = y_i\).
-"
+have that \(\mu_i^* = y_i\)."
 
-One Standard Error Rule, "Heuristic for model selection. Given an evaluation (mean, std error)
-of different models with different numbers of parameters with respect to a metric, choose the
-simplest model whose mean is still within 1 standard error of the best-performing model.
-"
+One Standard Error Rule,"Heuristic for model selection.
+Given an evaluation (mean, std error) of different models with different numbers of parameters with respect to a metric, choose the simplest model whose mean is still within 1 standard error of the best-performing model."
 
-Ways to do inference of posteriors, "1. Exact inference: Usually only possible if a conjugacy relation exists.
+Ways to do inference of posteriors,"1. Exact inference: Usually only possible if a conjugacy relation exists.
 2. Approximate inference
 2.1. Sample-based; Examples: Monte Carlo, importance sampling, MCMC
-2.2. Deterministic: Variational, i.e. analytical approximation to posterior
-"
+2.2. Deterministic: Variational, i.e. analytical approximation to posterior"
 
-Major ways to do Variational Inferece, "1. Covariate ascent with mean-field assumption
+Major ways to do Variational Inferece,"1. Covariate ascent with mean-field assumption
 2. Blackbox VI with score-gradient function
-3. Blackbox VI with reparametrization trick."
+3. Blackbox VI with reparametrization trick"
 

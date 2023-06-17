@@ -1,14 +1,19 @@
 #deck:"Causal Inference"
 #noteypte:"basic-bf4b5"
-Variance of random variable X, \(\mathbb{E}[(X-\mathbb{E}[x])^2]\)
-Standard deviation of random variable X, \(\sqrt{Var[X]}\)
-Epistemic uncertainty, Ignorance with respect to underlying data-generating process; model uncertainty
-Alaetoric uncertainty, Intrisic variability; data uncertainty
-Mode of a distribution, \(argmax_x pdf(X=x)\)
-Data missing completely at random, \( M \perp\!\!\!\perp X\)
-Data missing at random, \( M \perp\!\!\!\perp o(X; m) | p(X; m) \\ \text{where } m \text{ is a mask; } X \text{ has all true values and } o \text{ filters only observables} \)
-Data not missing at random, The missing value is correlated with the fact that it is missing
-Data missing due to censorship, The fact that a value is missing is deterministically dependent on its underlying value.
+Variance of random variable X,\(\mathbb{E}[(X-\mathbb{E}[x])^2]\)
+Standard deviation of random variable X,\(\sqrt{Var[X]}\)
+Epistemic uncertainty,Ignorance with respect to underlying data-generating process; model uncertainty
+Alaetoric uncertainty,Intrisic variability; data uncertainty
+Mode of a distribution,\(argmax_x pdf(X=x)\)
+Data missing completely at random,\( M \perp\!\!\!\perp X\)
+
+Data missing at random,"\( M \perp\!\!\!\perp o(X; m) | p(X; m)\) where
+- \(m\) is a mask,
+- \(X\) all true values and
+- \(o\) filters only observables"
+
+Data not missing at random,The missing value is correlated with the fact that it is missing
+Data missing due to censorship,The fact that a value is missing is deterministically dependent on its underlying value
 Dirac-delta function, \( \delta(x) = \begin{cases} + \infty & \text{ if }\ x=0 \\ 0 & \text{ otherwise} \end{cases}\) where \( \int_{-\infty}^{\infty} \delta(x) dx = 1\)
 Homoscedasticity, A.k.a homogeneity of variances; Rule of thumb: if the ratio of the largest variance to the smallest variance is 1.5 or below the data is homoscedastic.
 Heteroscedasticity, The variance of a variable is unequal across the range of values of a second variable that predicts it.
@@ -29,7 +34,12 @@ Highest density interval, \(C_{\alpha}(\mathcal{D}) = \{\theta: p(\theta|\mathca
 Parametric bootstrap, Create \(S\) many datasets \(\mathcal{D}^{(s)} = \{x_n \sim p(x_n|\hat{\theta}): n=1:N\} \) and use them to estimate \(p(\pi(\mathcal{D}) = \theta|\mathcal{D} \sim \theta^*) = \frac{1}{S}\sum_{s=1}^S \delta(\theta = \pi(\mathcal{D}^{(s)})) \)
 Non-parametric bootstrap, Create \(S\) many datasets by sampling with replacement \(\mathcal{D}^{(s)} = \{x_n \sim \mathcal{D}: n=1:N\} \) and use them to estimate \(p(\pi(\mathcal{D}) = \theta|\mathcal{D} \sim \theta^*) = \frac{1}{S}\sum_{s=1}^S \delta(\theta = \pi(\mathcal{D}^{(s)})) \)
 \(100(1-\alpha) \)% Confidence interval, \(I(\mathcal{D}) = (l(\mathcal{D}); u(\mathcal{D})) \) such that \(\Pr[\theta \in I(\mathcal{D})|\mathcal{D} \sim \theta] = 1 - \alpha\)
-Confidence interval vs Credible interval, Credible interval: What's the probability that the underlying parameter stems from a given interval given the data? Confidence interval: What's the probability that the data confirms the parameter? Bayesian: parameter is random and data is fixed. Frequentist: parameter is fixed data is random.
+
+Confidence interval vs Credible interval,"Credible interval: What's the probability that the underlying parameter stems from a given interval given the data?
+Confidence interval: What's the probability that the data confirms the parameter?
+Bayesian: parameter is random and data is fixed.
+Frequentist: parameter is fixed data is random."
+
 Bias-variance tradeoff, \(MSE = variance + bias^2\)
 
 Sufficient statistic \(t = T(X)\) for \(\theta\),"1. \(t\) is sufficient for underlying parameter \(\theta\) precisely if the conditional probability distribution of the data \(X\), given the statistic \(t = T(X)\), does not depend on the parameter \(\theta\).
@@ -37,11 +47,11 @@ Sufficient statistic \(t = T(X)\) for \(\theta\),"1. \(t\) is sufficient for und
 
 Consistent estimator,"Formally speaking, an estimator \(T_n\) of parameter \(\theta\) is said to be consistent, if it converges in probability to the true value of the parameter."
 
-Bias of an estimator, "is the difference between this estimator's expected value and the true value of the parameter being estimated."
+Bias of an estimator,"is the difference between this estimator's expected value and the true value of the parameter being estimated."
 
-Example of a biased but consistent estimator, "Assume \(X_i \sim \mathcal{U}(0, \theta)\). We define our estimator for \(\theta\) as follows: \(\hat{\theta} = \max_i X_i\). Intuitively this is biased because it is always, in expectation, underestimating the true parameter. Formally, its expected value is \(\mathbb{E}[\hat{\theta}] = \frac{n}{n+1}\theta\)."
+Example of a biased but consistent estimator,"Assume \(X_i \sim \mathcal{U}(0, \theta)\). We define our estimator for \(\theta\) as follows: \(\hat{\theta} = \max_i X_i\). Intuitively this is biased because it is always, in expectation, underestimating the true parameter. Formally, its expected value is \(\mathbb{E}[\hat{\theta}] = \frac{n}{n+1}\theta\)."
 
-Example of an unbiased but inconsistent estimator, "Given a series of \(n\) numbers, we would like to estimate the true underlying mean.
+Example of an unbiased but inconsistent estimator,"Given a series of \(n\) numbers, we would like to estimate the true underlying mean.
 We can define the estimator to be the most recently drawn number."
 
-Example of a simple Bayesian but non-generative model, "Linear regression where the \(X_i\) are considered constants and the weights \(w\) are considered random variables."
+Example of a simple Bayesian but non-generative model,"Linear regression where the \(X_i\) are considered constants and the weights \(w\) are considered random variables."
