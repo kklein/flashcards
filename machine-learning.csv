@@ -52,7 +52,7 @@ Difference between contextual bandit and RL,"In RL, an action in a given state i
 
 Gram Matrix,"\(A^TA\), always positive semidefinite"
 Orthogonal matrix \(U\),\(U^T U = U U^T = I\)
-Eigenvalue decomposition,"Of a real, symmetrix matrix \(A\): \(A = U \Lambda U^T\), where \(U\) is orthonormal"
+Eigenvalue decomposition,"Of a real, symmetric matrix \(A\): \(A = U \Lambda U^T\), where \(U\) is orthonormal"
 
 Singular value decomposision,"Of a real, \(m \times n\) matrix \(A\):
 \(A = USV^T\), where
