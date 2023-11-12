@@ -1,4 +1,4 @@
-#deck:"Causal Inference"
+#deck:"Probability & Statistics"
 #noteypte:"basic-bf4b5"
 Variance of random variable X,\(\mathbb{E}[(X-\mathbb{E}[x])^2]\)
 Standard deviation of random variable X,\(\sqrt{Var[X]}\)
@@ -60,3 +60,18 @@ Example of an unbiased but inconsistent estimator,"Given a series of \(n\) numbe
 We can define the estimator to be the most recently drawn number."
 
 Example of a simple Bayesian but non-generative model,"Linear regression where the \(X_i\) are considered constants and the weights \(w\) are considered random variables."
+
+Weak Law of Large Numbers,"Given an infinite series of Lebesque integrable i.i.d. variables \(X_1, X_2, \dots\) for which it holds that \(\mathbb[E][X_i] = \mu\).
+We define the sample average as \(\bar{X}_n = \frac{1}{n}\sum_i X_i\).
+Then we know that the sample average converges in probability towards the expected value, i.e. \(\forall \epsilon > 0\):
+\(\lim_{n \rightarrow \infty} \Pr(|\bar{X}_n - \mu| < \epsilon) = 1\)"
+
+Strong Law of Large Numbers,"A.k.a. Kolmogorov's law. Given an infinite series of Lebesque integrable i.i.d. variables \(X_1, X_2, \dots\) for which it holds that \(\mathbb[E][X_i] = \mu\).
+We define the sample average as \(\bar{X}_n = \frac{1}{n}\sum_i X_i\).
+Then we know that the sample average converges almost surely to the expected value, i.e.:
+\(\Pr(\lim_{n \rightarrow \infty} \bar{X}_n = \mu) = 1\)"
+
+Classic Central Limit Theorem,"Assume \(X_1, \dots, X_n\) are a sequence of i.i.d random variables such that \(\mathbb{E}[X_i] = \mu\) and \(Var[X_i] = \sigma^2\).
+The LLN tells us that the sample mean converges almost surely to \(\mu\). The CCLT tells us that as \(n\) grows, the distribution of the difference between the sample average \(\hat{X}_n\)
+and \(\mu\) multiplied by \(\sqrt{n}\) approximates a normal distribution with mean 0 and variance \(\sigma^2\), i.e.:
+\(\sqrt{n} (\hat{X}_n - \mu) \rightarrow \mathcal{N}(0, \sigma^2)\)"
