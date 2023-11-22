@@ -75,3 +75,9 @@ Classic Central Limit Theorem,"Assume \(X_1, \dots, X_n\) are a sequence of i.i.
 The LLN tells us that the sample mean converges almost surely to \(\mu\). The CCLT tells us that as \(n\) grows, the distribution of the difference between the sample average \(\hat{X}_n\)
 and \(\mu\) multiplied by \(\sqrt{n}\) approximates a normal distribution with mean 0 and variance \(\sigma^2\), i.e.:
 \(\sqrt{n} (\hat{X}_n - \mu) \rightarrow \mathcal{N}(0, \sigma^2)\)"
+
+Skewness,"Skewness is a measure of the asymmetry of the probability distribution of a real-valued random variable around its mean. For a unimodal distribution,
+negative skew commonly indicates that the tail is on the left side of the distribution, and positive skew indicates that the tail is on the right.
+Skewness is the third standardized moment of a distribution.
+\(\gamma_1 = \tilde{\mu}_3 = \mathbb{E}[(\frac{X - \mu}{\sigma})^3] \)
+"
