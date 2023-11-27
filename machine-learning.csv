@@ -1,3 +1,6 @@
+#deck:"Machine Learning"
+#separator:"Comma"
+
 Reinforcement Learning vs Supervised Learning,Learning with a critic vs learning with a teacher
 \(TFIDF_{ij} \) term \(i \) document \(j\),\( \frac{log(TF_{ij} + 1)}{log(\frac{n_{docs}}{n_{docs \text{ with term } i}})}\)
 Logistic function; a sigmoid function,\(\frac{1}{1+e^{-x}}\)
