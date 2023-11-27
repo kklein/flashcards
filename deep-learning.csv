@@ -1,3 +1,6 @@
+#deck:"Deep Learning"
+#separator:"Comma"
+
 Downsampling in CNN architectures,"1. Kernels with stride > 1
 2. Pooling layers"
 
@@ -16,3 +19,13 @@ Layer normalization,Normalization (centering by mean; scaling by variance) of in
 Instance normalization,Normalization (centering by mean; scaling by variance) of input for width and height per fixed channel and within-batch index
 Group normalization,Normalization (centering by mean; scaling by variance) of input for width and height and within-cluster index per channel-cluster and within-batch index
 Position normalization,Normalization (centering by mean; scaling by variance) of input for channel per fixed height and weight and within-batch index
+
+ReLU,"Rectified Linear Unit
+\(RelU(x) = max(x, 0)\)"
+
+Common activation functions,"Sigmoid, Tanh, ReLU, ReLU variants"
+Vanishing Gradient Problem,"When the activation function yields equal outputs within a neighborhood, the gradient is 0 and no information can be back-propagated to previous layers."
+Leaky ReLU,"\(f(x) =  \begin{cases}
+      x & x \geq 0 \\
+      .01x & \text{ow}
+   \end{cases} \)"
