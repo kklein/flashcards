@@ -223,3 +223,11 @@ Major ways to do Variational Inferece,"1. Covariate ascent with mean-field assum
 2. Blackbox VI with score-gradient function
 3. Blackbox VI with reparametrization trick"
 
+Huber Loss,"\( \mathcal{L}_{\delta}(a) =
+\begin{cases} + \frac{1}{2} a^2 & \text{ if }\ |a| < \delta \\ \delta(|a| - \frac{1}{2}\delta) & \text{ otherwise} \end{cases}\)"
+
+Limitations of PCA,"
+1. Cannot deal with categorical data
+2. Strictly a linear transformation
+3. De-meaning and scaling are necessary
+"
