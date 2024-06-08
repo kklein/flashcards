@@ -29,3 +29,13 @@ Leaky ReLU,"\(f(x) =  \begin{cases}
       x & x \geq 0 \\
       .01x & \text{ow}
    \end{cases} \)"
+
+Weight decay,"Achieved either via
+1. MAP with e.g. a Gaussian prior on the weights
+2. L2 penalty term in overall objective"
+
+Why is L1 penalization not popular?,"GPUs are optimized for multiplication of dense matrices - hence the computational benefit is very limited"
+
+Dropout,"For each sample in training, each linear connection may be dropped with a probability p.
+At inference time, dropout is usually turned off but the dot products multiplied with (1-p) as to preserve the same expected value.
+Intuitively it avoids building fragile and complex interdependencies."
