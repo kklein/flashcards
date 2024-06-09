@@ -1,0 +1,16 @@
+#deck:"Python"
+#separator:"Comma"
+
+Closure,"Is a function encompassing variables that are neither global nor local to that function. These variables are called free variables.
+E.g.:
+<pre>
+def f1():
+    a = 5
+    def f2(b):
+        print(a)
+        print(b)
+    f2(10)
+f1()
+</pre>
+"
+
