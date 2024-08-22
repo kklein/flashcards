@@ -93,18 +93,18 @@ Convex set \(\mathcal{S}\),"\(\forall x, x' \in \mathcal{S}, \forall \lambda \in
 Definition of convex function \(f\),"1. The epigraph of the function, i.e. all point lying above it, defines a convex set.
 2. Defined on a convex set and \(\forall x, y \in \mathcal{S}, \forall \lambda \in [0, 1]: f(\lambda x + (1 - \lambda) y) \leq \lambda f(x) + (1 - \lambda)f(y)\)"
 
-A twice differentiable function \(f\) is convex iff its Hessian,is positive semi-definite for all \(x \in dom(f)\)
-Lipschitz constant \(L\) of a function \(f\),characterizes the degree of smoothness s.t. \(|f(x_1) - f(x_2)| \leq L |x_1 - x_2| \)
-Momentum in gradient descent,Exponentially weighted moving average of past gradients \(m_t = g_{t-1} + m_{t-1} \beta\)
-First-order methods,rely on evaluation of the gradient of the function
-Second-order methods,rely on evaluation of the Hessian of the function
-Newton's method,\(\theta_{t+1} = \theta_t - \rho_t H_t^{-1} g_t\) where \(H_t\) is assumed to be positive-definite.
+A twice differentiable function \(f\) is convex iff its Hessian,"Is positive semi-definite for all \(x \in dom(f)\)"
+Lipschitz constant \(L\) of a function \(f\),"Characterizes the degree of smoothness s.t. \(|f(x_1) - f(x_2)| \leq L |x_1 - x_2| \)"
+Momentum in gradient descent,"Exponentially weighted moving average of past gradients \(m_t = g_{t-1} + m_{t-1} \beta\)"
+First-order methods,"Rely on evaluation of the gradient of the function"
+Second-order methods,"Rely on evaluation of the Hessian of the function"
+Newton's method,"\(\theta_{t+1} = \theta_t - \rho_t H_t^{-1} g_t\) where \(H_t\) is assumed to be positive-definite."
 
 Stochastic Gradient Descent,"Compute an unbiased estimate of the gradient of \(\mathcal{L}\) by only using one sample \(z_t \sim q\) in the loss function.
 It is necessary that \(q\) is independent of the parameters to be optimized. This results in:
 \(\theta_{t+1} = \theta_t - \rho_t \nabla \mathcal{L}(\theta_t, z_t)\)"
 
-Learning rate warmup,Quickly increasing the learning rate and then gradually decreasing it again
+Learning rate warmup,"Quickly increasing the learning rate and then gradually decreasing it again."
 
 ADAGRAD,"\(\theta_{t+1, d} = \theta_{t, d} - \rho_t \frac{1}{\sqrt{s_{t, d} + \epsilon}}g_{t, d}\)
 where
@@ -178,14 +178,10 @@ while logistic regression maximizes the conditional likelihood \(p(y|x,w)\)."
 Naive Bayes assumption,"The features are conditionally independent on each other, conditioned on the label."
 Ways to compute pesudo-inverse in OLS,"QR or SVD decomposition of pseudo-inverse"
 
-\(R^2\),"Coefficient of determination
-\(R^2 = 1 - \frac{RSS}{TSS} = 1 - \frac{\sum_{i=1}^N (\hat{y}_i - y_i)^2}{\sum_{i=1}^N (\bar{y} - y_i)^2 }\)
-It measures the variance in predictions relative to a constant prediction."
-
 Prior for ridge/l2 regression,"Normal"
 Prior for lasso/l1 regression,"Laplace"
-Geometric intuition for which l1 regularization is sparser than l2 regularization,The corners of the diamond are more likely to intersect with an ellipsis than arbitrary points of a ball - especially in high dimensions.
-Reason for which we don't use l0 regularization for sparse weights in linear regression,The problem would become non-convex.
+Geometric intuition for which l1 regularization is sparser than l2 regularization,"The corners of the diamond are more likely to intersect with an ellipsis than arbitrary points of a ball - especially in high dimensions."
+Reason for which we don't use l0 regularization for sparse weights in linear regression,"The problem would become non-convex."
 
 Methods of regularization for linear regression,"1. L1 (lasso)
 2. L2 (ridge)
@@ -197,31 +193,8 @@ Robust linear regression,"Assumption that the outcome is not Normal-distributed 
 Laplace or student-t distribution. Both have heavier tails, which makes the optimization procedure
 less vulnerable to 'outliers'."
 
-Generalized Linear Model,"Conditional version of exponential dispersion family with the natural parameters \(\eta_i\) being linear functions of the input.
-\( p(y_i|x_i, w, \sigma^2) = exp(\frac{y_i \eta_i - A(\eta_i)}{\sigma^2} + \log h(y_i, \sigma^2) ) \)
-with \(\eta_i = w^Tx\), \(\sigma^2\) the disperson term, \(A(\eta_i)\) the log normalizer and \(\mathcal{T}(y) =y\) the sufficient statistic."
-
-Link function of GLM,"\(l\) is the link function iff
-\(\mathbb{E}[y_i|x_i, w, \sigma^2] = A'(\eta_i) = l^{-1}(\eta_i)\)
-E.g. for logistic regression the link function is \(\theta=l(\mu) = logit(\mu) = \log \frac{\mu}{1-\mu}\) and
-the mean (inverse link) function is the sigmoid function: \(l^{-1}(\eta_i) = \frac{e^{\eta_i}}{1 + e^{\eta_i}} \)"
-
-Deviance,"\(D(y, \hat{\mu}) = 2 \sum_i (\log p(y_i|\mu_i^*) - \log p(y_i|\mu_i)\)
-where \(\mu_i\) is the predicted parameter for the ith sample based on input features \(x_i\) and
-\(\mu_i^*\) is the estimated parameter when using the true output. E.g. in Poisson regression we
-have that \(\mu_i^* = y_i\)."
-
 One Standard Error Rule,"Heuristic for model selection.
 Given an evaluation (mean, std error) of different models with different numbers of parameters with respect to a metric, choose the simplest model whose mean is still within 1 standard error of the best-performing model."
-
-Ways to do inference of posteriors,"1. Exact inference: Usually only possible if a conjugacy relation exists.
-2. Approximate inference
-2.1. Sample-based; Examples: Monte Carlo, importance sampling, MCMC
-2.2. Deterministic: Variational, i.e. analytical approximation to posterior"
-
-Major ways to do Variational Inferece,"1. Covariate ascent with mean-field assumption
-2. Blackbox VI with score-gradient function
-3. Blackbox VI with reparametrization trick"
 
 Huber Loss,"\( \mathcal{L}_{\delta}(a) =
 \begin{cases} + \frac{1}{2} a^2 & \text{ if }\ |a| < \delta \\ \delta(|a| - \frac{1}{2}\delta) & \text{ otherwise} \end{cases}\)"
