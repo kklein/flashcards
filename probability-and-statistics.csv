@@ -1,5 +1,6 @@
 #deck:"Probability & Statistics"
 #noteypte:"basic-bf4b5"
+
 Variance of random variable X,\(\mathbb{E}[(X-\mathbb{E}[x])^2]\)
 Standard deviation of random variable X,\(\sqrt{Var[X]}\)
 Epistemic uncertainty,Ignorance with respect to underlying data-generating process; model uncertainty
@@ -91,10 +92,7 @@ Link function of GLM,"\(l\) is the link function iff
 E.g. for logistic regression the link function is \(\theta=l(\mu) = logit(\mu) = \log \frac{\mu}{1-\mu}\) and
 the mean (inverse link) function is the sigmoid function: \(l^{-1}(\eta_i) = \frac{e^{\eta_i}}{1 + e^{\eta_i}} \)"
 
-Deviance,"\(D(y, \hat{\mu}) = 2 \sum_i (\log p(y_i|\mu_i^*) - \log p(y_i|\mu_i)\)
-where \(\mu_i\) is the predicted parameter for the ith sample based on input features \(x_i\) and
-\(\mu_i^*\) is the estimated parameter when using the true output. E.g. in Poisson regression we
-have that \(\mu_i^* = y_i\)."
+Deviance,"\(D(y, \hat{\mu}) = 2 \sum_i (\log p(y_i|\mu_i^*) - \log p(y_i|\mu_i))\) where \(\mu_i\) is the predicted parameter for the ith sample based on input features \(x_i\) and \(\mu_i^*\) is the estimated parameter when using the true output. E.g. in Poisson regression we have that \(\mu_i^* = y_i\)."
 
 \(R^2\),"Coefficient of determination
 \(R^2 = 1 - \frac{RSS}{TSS} = 1 - \frac{\sum_{i=1}^N (\hat{y}_i - y_i)^2}{\sum_{i=1}^N (\bar{y} - y_i)^2 }\)
@@ -108,3 +106,8 @@ Ways to do inference of posteriors,"1. Exact inference: Usually only possible if
 Major ways to do Variational Inferece,"1. Covariate ascent with mean-field assumption
 2. Blackbox VI with score-gradient function
 3. Blackbox VI with reparametrization trick"
+
+Type I error,"False negative; Rejecting the null hypothesis even though it is true"
+Type II error,"False positive; Not rejecting the null hypothesis even though it is false"
+Power of a test,"The probability that the test correctly rejects the null hypothesis \(H_0\), given that the alternative hypothesis \(H_1\) is true; often denoted as \(1-\beta\)"
+Significance level of a test,"Is the probability of rejecting the null hypothesis \(H_0\), given that the null hypothesis \(H_0\) is true; often denoted \(\alpha\)"
