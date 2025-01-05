@@ -1,5 +1,6 @@
-#deck:"Deep Learning"
-#separator:"Comma"
+#deck:Deep Learning
+#separator:Comma
+#notetype:Basic-bf4b5
 
 Downsampling in CNN architectures,"1. Kernels with stride > 1
 2. Pooling layers"

@@ -1,5 +1,6 @@
-#deck:"French"
-#separator:"Comma"
+#deck:French
+#separator:Comma
+#notetype:Basic (and reversed card)
 
 S'éteindre,"1. Cesser de brûler
 2. Perdre son éclat, sa vivacité"
