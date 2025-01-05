@@ -204,3 +204,28 @@ Limitations of PCA,"
 2. Strictly a linear transformation
 3. De-meaning and scaling are necessary
 "
+
+Recall at k,"\( \frac{\text{#relevant items among } k \text{ retrieved items}}{\text{#relevant items}} \)"
+Precision at k,"\( \frac{\text{#relevant items among } k \text{ retrieved items}}{k} \)"
+
+DCG,"Discounted Cumulative Gain
+Cumulative Gain is invariant to ordering of retrieved documents:
+\(CG_p := \sum_{i=1}^p rel_i\)
+Discounted Cumulative Gain, on the other hand, is sensitive to the order. Two variants exist:
+\(DCG_p := \sum_{i=1}^p \frac{rel_i}{log_2(i+1)} \)
+\(DCG_p := \sum_{i=1}^p \frac{2^{rel_i} - 1}{log_2(i+1)} \)
+In principle, other functions that the logarithm could be used for discounting. Yet, the logarithm
+has some desirable theoretical guarantees.
+"
+
+NDCG,"Normalized Discounted Cumulative Gain
+
+\(NDCG_p := \frac{DCG_P}{IDCG_p} \)
+
+Where \(IDCG_p\) corresponds to the Ideal Discounted Cumulative Gain:
+
+\(IDCG_p := \sum_{i=1}^{|REL_p|} \frac{2^{rel_i} - 1}{log_2(i+1)} \)
+
+and \(REL_p\) is the sequence of most relevant documents among p documents, ordered by relevance.
+"
+
