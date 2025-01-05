@@ -14,11 +14,18 @@ Depthwise convoluton,"1. Separate kernel per channel
 2. Aggregation operation; Can have large speedup but is an approximation to conventional convolution"
 
 Normalization,\( x_i = \frac{x_i - \hat{\mu}}{\sqrt{\hat{\sigma}^2} + \epsilon}\) where \(\epsilon\) is a small constant added for numerical purposes
-Batch normalization,Normalization (centering by mean; scaling by variance) of input for height and width and within-batch index per fixed channel
+
+Batch normalization,"Use an empirical mean and empirical variance to normalize data points. Given that the datapoint at hand is identified by \(i=(i_h, i_w, i_c, i_n)\),
+we use the empirical statistics from \(S_i = \{i'|i'_c=ic\}\).
+In other words, we are normalizing the data point by all data points from this batch (across pixel positions, across within-batch indices) for a given channel.
+
+Note that batch normalization also exists outside of CNNs, where the per-channel notion is lost.
+"
+
 Layer normalization,Normalization (centering by mean; scaling by variance) of input for height and width and channel per fixed within-batch index
 Instance normalization,Normalization (centering by mean; scaling by variance) of input for width and height per fixed channel and within-batch index
 Group normalization,Normalization (centering by mean; scaling by variance) of input for width and height and within-cluster index per channel-cluster and within-batch index
-Position normalization,Normalization (centering by mean; scaling by variance) of input for channel per fixed height and weight and within-batch index
+Position normalization,Normalization (centering by mean; scaling by variance) of input for channel per fixed height and width and within-batch index
 
 ReLU,"Rectified Linear Unit
 \(RelU(x) = max(x, 0)\)"
@@ -39,3 +46,28 @@ Why is L1 penalization not popular?,"GPUs are optimized for multiplication of de
 Dropout,"For each sample in training, each linear connection may be dropped with a probability p.
 At inference time, dropout is usually turned off but the dot products multiplied with (1-p) as to preserve the same expected value.
 Intuitively it avoids building fragile and complex interdependencies."
+
+Global average pooling,"Maps from a tensor of size \(H \times W \times D\) to a tensor of size \(1 \times 1 \times D\) by averaging every feature map/channel.
+This is particularly useful for dealing with input images of different sizes."
+
+Convolution in Deep Learning,"What is called convolution in Deep Learning is called 'cross-correlation' in other contexts. The cross-correlation between two functions
+\(f, g: \mathbb{R}^D \rightarrow \mathbb{R}\) is defined as \([f \ast g](z) = \int_{\mathbb{R}^D} f(u)g(u+z) du\).
+
+Most of the time, in Deep Learning, we have that:
+- \(f\) is a weight vector, usually a flattened kernel/filter
+- \(g\) is a vector with a subset of the flattened input data
+- \(z\) is an offset of the data (e.g. the kth pixel)
+Outside of Deep Learning, convolution is usually defined as:
+\([f \circledast g](z) = \int_{\mathbb{R}^D} f(u)g(z-u) du\)
+"
+
+"If we have an input image of size \((x_h, x_w)\), a filter of size \((f_h, f_w)\) a stride of \((s_h, s_w)\) and padding of \((p_h, p_w)\), what's the size of the
+feature map after applying a convolution?","\(\left\lfloor \frac{x_h + 2 p_h - f_h + s_h}{s_h} \right\rfloor\) by \(\left\lfloor \frac{x_w + 2 p_w - f_w + s_w}{s_w} \right\rfloor\)"
+
+Receptive field of a pixel,"The part of the input image which has had information flow to the feature map of said pixel"
+
+Application of a convolution kernel,"A kernel has four dimensions: its width, its height, the number of input channels/feature maps, the number of output channels/feature maps.
+Per input pixel \(i, j\) the convolution produces a scalar output per output dimension \(d\), summing over input channels:
+\(z_{i, j, d} = b + \sum_{u=0}^{H-1} \sum_{v=0}^{W-1} \sum_{c=0}^{C-1} x_{(i + u, j+v, c)} w_{u, v, c, d}\)"
+
+Residual blocks in ResNets,"Use \(x_{l+1} = \psi(x_l + F_l(x_l))\) instead of \(x_{l+1} = F_l(x_l)\)"
