@@ -1,5 +1,5 @@
-#deck:"Python"
-#separator:"Comma"
+#deck:Python
+#separator:Comma
 
 Closure,"Is a function encompassing variables that are neither global nor local to that function. These variables are called free variables.
 E.g.:

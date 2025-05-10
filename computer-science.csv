@@ -1,5 +1,5 @@
-#deck:"Computer Science"
-#separator:"Comma"
+#deck:Computer Science
+#separator:Comma
 
 Union-Find,"TODO"
 Priority Queue,"TODO"

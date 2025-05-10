@@ -1,5 +1,6 @@
-#deck:"Probability & Statistics"
-#noteypte:"basic-bf4b5"
+#deck:Probability & Statistics
+#separator:Comma
+#noteypte:basic-bf4b5
 
 Variance of random variable X,\(\mathbb{E}[(X-\mathbb{E}[x])^2]\)
 Standard deviation of random variable X,\(\sqrt{Var[X]}\)
