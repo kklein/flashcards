@@ -189,9 +189,7 @@ Methods of regularization for linear regression,"1. L1 (lasso)
 4. L1 for feature selection, no regularization for actual weights ('debiasing')
 5. Group LASSO (for highly correlated features or one-hot encoded levels of a categorical)"
 
-Robust linear regression,"Assumption that the outcome is not Normal-distributed but follows either a
-Laplace or student-t distribution. Both have heavier tails, which makes the optimization procedure
-less vulnerable to 'outliers'."
+Robust linear regression,"Assumption that the outcome is not Normal-distributed but follows either a Laplace or student-t distribution. Both have heavier tails, which makes the optimization procedure less vulnerable to 'outliers'."
 
 One Standard Error Rule,"Heuristic for model selection.
 Given an evaluation (mean, std error) of different models with different numbers of parameters with respect to a metric, choose the simplest model whose mean is still within 1 standard error of the best-performing model."
