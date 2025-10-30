@@ -1,8 +1,35 @@
 #deck:Computer Science
 #separator:Comma
 
-Union-Find,"TODO"
-Priority Queue,"TODO"
+Union-Find,"Form graph components based on connectivity of nodes.
+
+When merging components, the component of smaller cardinality is attached to the component of higher cardinality.
+
+Components are typically represented as trees, not sets.
+
+Importantly, the find (root) operation doesn't only follow links to parents but also mutates the tree ('compression'). There are two common options:
+1. Attach every node on the path to the root to the root
+2. Attach every node on the path to the root to the node's grandparent
+"
+
+Priority Queue,"Is an abstract data structure that is typically instantiated via a binary min or max heap."
 B-Tree,"TODO"
-Heap,"TODO"
-Trie,"TODO"
+Heap datastructure,"Is a tree (can be binary, mustn't be) in which every parent is larger (max) or smaller (min) that its children.
+
+Binary heaps are always perfectly balanced by adhering to these two rules:
+1. When adding a node, it is added as the right-most leaf. Then it is propagated up as far as necessary on the path to the root.
+2. When extracted a root, it is first replaced by the right-most leaf. This leaf is than propagated down as far as necessary on a path to a leaf.
+
+Since they are perfectly balanced, they can be very easily represented by an array. Therefore, in a min heap, it holds that:
+a[i] <= a[2*i + 1] and a[i] = a[2*i + 2]
+conversely, in holds that
+a[i] >= a[(i-1) // 2]
+"
+Trie,"A.k.a prefix tree: a tree which represents collection of strings.
+
+Every character of every string is represented by a node. Some nodes can be 'terminal'
+in that they are not only a prefix of a tree but also contain a complete string."
+
+Radix tree,"TODO"
+Radix sort,"TODO"
+
