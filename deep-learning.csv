@@ -40,13 +40,25 @@ Leaky ReLU,"\(f(x) =  \begin{cases}
 
 Weight decay,"Achieved either via
 1. MAP with e.g. a Gaussian prior on the weights
-2. L2 penalty term in overall objective"
+2. L2 penalty term in overall objective
+
+Usually not applied to bias or normalization weights."
 
 Why is L1 penalization not popular?,"GPUs are optimized for multiplication of dense matrices - hence the computational benefit is very limited"
 
-Dropout,"For each sample in training, each linear connection may be dropped with a probability p.
-At inference time, dropout is usually turned off but the dot products multiplied with (1-p) as to preserve the same expected value.
-Intuitively it avoids building fragile and complex interdependencies."
+Dropout,"For each sample in training, each activation may be dropped with a probability p, all others are multiplied by (1-p) to ensure an equal expected value as at inference time.
+
+Intuitively it avoids building fragile and complex interdependencies.
+
+In convolution, every channel is dropped with probability p.
+
+In attention, there are three dropout mechanisms:
+- each attention weight (after the softmax); renormalizing the other weights to sum to 1
+- the embeddings
+- residual dropout
+
+At inference time, dropout is usually turned off.
+"
 
 Global average pooling,"Maps from a tensor of size \(H \times W \times D\) to a tensor of size \(1 \times 1 \times D\) by averaging every feature map/channel.
 This is particularly useful for dealing with input images of different sizes."
@@ -72,3 +84,17 @@ Per input pixel \(i, j\) the convolution produces a scalar output per output dim
 \(z_{i, j, d} = b + \sum_{u=0}^{H-1} \sum_{v=0}^{W-1} \sum_{c=0}^{C-1} x_{(i + u, j+v, c)} w_{u, v, c, d}\)"
 
 Residual blocks in ResNets,"Use \(x_{l+1} = \psi(x_l + F_l(x_l))\) instead of \(x_{l+1} = F_l(x_l)\)"
+
+Why does Tanh aggravate the vanishing gradients problem?,"Tanh maps many activations to values very close to 1. This leads to their derivate being very close to 0. Multiplying several of such quantities makes vanishing gradients more likely."
+
+GeLU,"\(GeLU(x) = x P(Z \leq x)\)
+where \(P\) is the cumulative distribution function of a standard Normal RV \(Z\) ."
+
+Kaiming He initilization,"Parameter initialization technique which attempts to avoid vanishing and exploding gradients for NNs with ReLU-like activation functions.
+
+Non-bias weights for layer \(l\) are sampled from a uniform or normal distribution with expected value 0 and variance \(2/n_{\text{input dimension}^l)\).
+
+The bias weights are initialized to 0.
+"""
+
+AdamW optimizer,"When using weight decay with the Adam optimizer, the regularization loss can have a big, undesired impact on the learning rate. Therefore, the AdamW optimzer keeps both losses separate and applies gradient updates separately."

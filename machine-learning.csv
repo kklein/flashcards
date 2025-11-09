@@ -227,3 +227,5 @@ Where \(IDCG_p\) corresponds to the Ideal Discounted Cumulative Gain:
 and \(REL_p\) is the sequence of most relevant documents among p documents, ordered by relevance.
 "
 
+Inductive bias,"The set of assumptions that a learning algorithm uses to generalize from its training data to new, unseen data."
+
