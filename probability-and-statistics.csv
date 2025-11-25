@@ -29,7 +29,14 @@ Justification for Maximum Likelihood Estimation,"1. Maximum A Posteriori with un
 Ordinary Least Squares estimate,\(\hat{w}_{MLE} = argmin\ RSS(w) = (X^TX)^{-1}X^Ty\)
 Exponentially weighted moving average,\(\hat{\mu}_t = \beta \hat{\mu}_{t-1} + (1-\beta) y_t\)
 Cross-validated risk,\( R_{\lambda}^{CV} = \frac{1}{K} \sum_{k=1}^K R(\hat{\theta}_{\lambda} (\mathcal{D}_{-k}); \mathcal{D}_k)\)
-Standard error of a statistic,Standard deviation of the sampling distribution
+
+Standard error of a statistic,"The standard error (SE) is a measure of how much a sample statistic (like a sample mean or a sample proportion) would vary from sample to sample if you repeated the same study many times.
+
+An example formula for estimating the standard error of the sample mean is:
+\(SE = \hat{\sigma}/\sqrt{n} \)
+
+where \(n\) is the size of the sample and \(\hat{\sigma}\) the sample's estimate of the data's standard deviation."
+
 Conjugate prior,A prior is called conjugate to a likelihood if the posterior is in the same family as the prior.
 Posterior predictive distribution,\( p(y|x;D) = \int p(y|x; \theta) p(\theta|\mathcal{D}) d\theta\)
 Empirical Bayes,Aka type II maximum likelihood; \(argmax_{\psi} \int p(\mathcal{D}|\theta)p(\theta|\psi)d\theta\)
@@ -112,3 +119,21 @@ Type I error,"False negative; Rejecting the null hypothesis even though it is tr
 Type II error,"False positive; Not rejecting the null hypothesis even though it is false"
 Power of a test,"The probability that the test correctly rejects the null hypothesis \(H_0\), given that the alternative hypothesis \(H_1\) is true; often denoted as \(1-\beta\)"
 Significance level of a test,"Is the probability of rejecting the null hypothesis \(H_0\), given that the null hypothesis \(H_0\) is true; often denoted \(\alpha\)"
+
+Quantile loss,"For a quantile level (e.g. .8) \(\tau\), the quantile loss is defined as
+
+\(\mathcal{L}_{\tau} (y, \hat{y}) = \begin{cases}
+    \tau(y - \hat{y})\ \text{ if } y \geq \hat{y} \\
+    (\tau - 1)(y - \hat{y})\ \text{ otherwise}
+\end{cases}\)
+"
+
+Poisson loss,"The Poisson loss follows from applying MLE to a target that is presumed to be Poisson-distributed:
+
+\(\mathcal{L}(D, \hat{f}) =  \sum_i \hat{f}(x_i) - y_i \log(\hat{f}(x_i))\)
+
+Importantly, it doesn't assume fixed variance. In other words, the loss between \(y_i = 101, \hat{y}_i = 103\) is very different from \(y_i = 1, \hat{y}_i = 3\).
+
+Moreover it is asymmetric and punishes underprediction more severely than overprediction."
+
+Poisson PMF,"\(\Pr[X=k] = \frac{\lambda^k e^{-\lambda}}{k!}\) with \(\mathbb{E}[X] = Var[X] = \lambda > 0\)"

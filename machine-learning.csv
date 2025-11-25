@@ -229,3 +229,19 @@ and \(REL_p\) is the sequence of most relevant documents among p documents, orde
 
 Inductive bias,"The set of assumptions that a learning algorithm uses to generalize from its training data to new, unseen data."
 
+Trick used for eigenface values,"There are few \(n\) images of width \(W\) and height \(H\).
+
+The images are flattened to \(d = W \cdot H\) such that \(X \in \mathbb{R}^{n \cdot d}\) and centered such that
+each column of \(X\) has mean 0.
+
+Usually, we would do EVD on \(X^T X\). Yet, this would be very expensive since \(d\) is large.
+
+Therefore EVD is done on \(X X^T\). This works, because:
+\(
+X^TX = U \Lambda U^T
+\Rightarrow X^TX u_j = \lambda_j u_j
+\Rightarrow X X^TX u_j = \lambda_j X u_j
+\Rightarrow (X X^T) (X u_j) = \lambda_j (X u_j)
+\)
+
+In other words, the eigenvectors from one can easily be mapped to the other."

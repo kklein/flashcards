@@ -98,3 +98,7 @@ The bias weights are initialized to 0.
 """
 
 AdamW optimizer,"When using weight decay with the Adam optimizer, the regularization loss can have a big, undesired impact on the learning rate. Therefore, the AdamW optimzer keeps both losses separate and applies gradient updates separately."
+
+Teacher forcing,"When predicting a series in an autoregressive way (e.g. with an RNN), one feeds the model the label for sequence element t, rather than its own prediction for element t to predict sequence element t+1."
+Student forcing,"When predicting a series in an autoregressive way (e.g. with an RNN), one feeds the model its own prediction for sequence element to predict sequence element t+1."
+Time series normalization,"When feeding time series, from potentially different sources (e.g. different sensors, different stocks) to a Deep Learning architecture, one might want to deviate from global normalzation. The main reasons is that the observations might not be identically distributed. Therefore, one can consider normalizing per sequence."
