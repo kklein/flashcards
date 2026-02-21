@@ -13,7 +13,7 @@ Importantly, the find (root) operation doesn't only follow links to parents but 
 "
 
 Priority Queue,"Is an abstract data structure that is typically instantiated via a binary min or max heap."
-B-Tree,"TODO"
+
 Heap datastructure,"Is a tree (can be binary, mustn't be) in which every parent is larger (max) or smaller (min) that its children.
 
 Binary heaps are always perfectly balanced by adhering to these two rules:
@@ -30,6 +30,32 @@ Trie,"A.k.a prefix tree: a tree which represents collection of strings.
 Every character of every string is represented by a node. Some nodes can be 'terminal'
 in that they are not only a prefix of a tree but also contain a complete string."
 
+Skip list,"Probabilistic container data structure for
+
+- \(\mathcal{O}(\log(n))\) expected time searc
+- \(\mathcal{O}(\log(n))\)  expected time insertion
+
+Construction:
+
+- Build a layer of lists. The bottom-most layer contains every retrievable element in sorted order.
+- Each element of layer \(j\) has a probability \(p\) of also being part of layer \(j+1\).
+- If an element is in both layer \(j\) and layer \(j + 1\), they contain pointers to each other.
+
+Search:
+
+- We start at the top-most layer.
+- In each layer, we look for the largest item that is smaller than our query value.
+- If we found this element, we jump down to its corresponding value in the layer below.
+"
+
+Expected asymptotic runtime,"of a probabilistic algorithm is defined as such:
+
+\(\max_x \mathbb{E}_{random bits} T(x)\)
+
+In other words, the adversary can choose the worst possible input to the algorithm given the algorithm's definition, not given it's random decisions.
+"
+
 Radix tree,"TODO"
 Radix sort,"TODO"
+B-Tree,"TODO"
 
