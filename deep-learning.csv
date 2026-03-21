@@ -85,12 +85,12 @@ Per input pixel \(i, j\) the convolution produces a scalar output per output dim
 
 Residual blocks in ResNets,"Use \(x_{l+1} = \psi(x_l + F_l(x_l))\) instead of \(x_{l+1} = F_l(x_l)\)"
 
-Why does Tanh aggravate the vanishing gradients problem?,"Tanh maps many activations to values very close to 1. This leads to their derivate being very close to 0. Multiplying several of such quantities makes vanishing gradients more likely."
+Why does Tanh aggravate the vanishing gradients problem?,"Tanh maps many activations to values very close to 1. This leads to their derivative being very close to 0. Multiplying several of such quantities makes vanishing gradients more likely."
 
 GeLU,"\(GeLU(x) = x P(Z \leq x)\)
 where \(P\) is the cumulative distribution function of a standard Normal RV \(Z\) ."
 
-Kaiming He initilization,"Parameter initialization technique which attempts to avoid vanishing and exploding gradients for NNs with ReLU-like activation functions.
+Kaiming He initialization,"Parameter initialization technique which attempts to avoid vanishing and exploding gradients for NNs with ReLU-like activation functions.
 
 Non-bias weights for layer \(l\) are sampled from a uniform or normal distribution with expected value 0 and variance \(2/n_{\text{input dimension}^l)\).
 
