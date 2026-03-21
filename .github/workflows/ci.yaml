@@ -5,12 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
-      - name: Install Python 3.10
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+      - name: Set up pixi
+        uses: prefix-dev/setup-pixi@v0.8.1
       - name: Run pre-commit checks
-        uses: pre-commit/action@v3.0.0
+        run: pixi run pre-commit
