@@ -1,11 +1,11 @@
 #deck:Probability & Statistics
 #separator:Comma
-#noteypte:basic-bf4b5
+#notetype:basic-bf4b5
 
-Variance of random variable X,\(\mathbb{E}[(X-\mathbb{E}[x])^2]\)
+Variance of random variable X,\(\mathbb{E}[(X-\mathbb{E}[X])^2]\)
 Standard deviation of random variable X,\(\sqrt{Var[X]}\)
 Epistemic uncertainty,Ignorance with respect to underlying data-generating process; model uncertainty
-Alaetoric uncertainty,Intrisic variability; data uncertainty
+Aleatoric uncertainty,Intrinsic variability; data uncertainty
 Mode of a distribution,\(argmax_x pdf(X=x)\)
 Data missing completely at random,\( M \perp\!\!\!\perp X\)
 
@@ -70,12 +70,12 @@ We can define the estimator to be the most recently drawn number."
 
 Example of a simple Bayesian but non-generative model,"Linear regression where the \(X_i\) are considered constants and the weights \(w\) are considered random variables."
 
-Weak Law of Large Numbers,"Given an infinite series of Lebesque integrable i.i.d. variables \(X_1, X_2, \dots\) for which it holds that \(\mathbb[E][X_i] = \mu\).
+Weak Law of Large Numbers,"Given an infinite series of Lebesque integrable i.i.d. variables \(X_1, X_2, \dots\) for which it holds that \(\mathbb{E}[X_i] = \mu\).
 We define the sample average as \(\bar{X}_n = \frac{1}{n}\sum_i X_i\).
 Then we know that the sample average converges in probability towards the expected value, i.e. \(\forall \epsilon > 0\):
 \(\lim_{n \rightarrow \infty} \Pr(|\bar{X}_n - \mu| < \epsilon) = 1\)"
 
-Strong Law of Large Numbers,"A.k.a. Kolmogorov's law. Given an infinite series of Lebesque integrable i.i.d. variables \(X_1, X_2, \dots\) for which it holds that \(\mathbb[E][X_i] = \mu\).
+Strong Law of Large Numbers,"A.k.a. Kolmogorov's law. Given an infinite series of Lebesque integrable i.i.d. variables \(X_1, X_2, \dots\) for which it holds that \(\mathbb{E}[X_i] = \mu\).
 We define the sample average as \(\bar{X}_n = \frac{1}{n}\sum_i X_i\).
 Then we know that the sample average converges almost surely to the expected value, i.e.:
 \(\Pr(\lim_{n \rightarrow \infty} \bar{X}_n = \mu) = 1\)"
@@ -111,12 +111,12 @@ Ways to do inference of posteriors,"1. Exact inference: Usually only possible if
 2.1. Sample-based; Examples: Monte Carlo, importance sampling, MCMC
 2.2. Deterministic: Variational, i.e. analytical approximation to posterior"
 
-Major ways to do Variational Inferece,"1. Covariate ascent with mean-field assumption
+Major ways to do Variational Inferece,"1. Coordinate ascent with mean-field assumption
 2. Blackbox VI with score-gradient function
 3. Blackbox VI with reparametrization trick"
 
-Type I error,"False negative; Rejecting the null hypothesis even though it is true"
-Type II error,"False positive; Not rejecting the null hypothesis even though it is false"
+Type I error,"False positive; Rejecting the null hypothesis even though it is true"
+Type II error,"False negative; Not rejecting the null hypothesis even though it is false"
 Power of a test,"The probability that the test correctly rejects the null hypothesis \(H_0\), given that the alternative hypothesis \(H_1\) is true; often denoted as \(1-\beta\)"
 Significance level of a test,"Is the probability of rejecting the null hypothesis \(H_0\), given that the null hypothesis \(H_0\) is true; often denoted \(\alpha\)"
 

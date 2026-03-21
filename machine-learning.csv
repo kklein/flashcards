@@ -57,14 +57,14 @@ Gram Matrix,"\(A^TA\), always positive semidefinite"
 Orthogonal matrix \(U\),\(U^T U = U U^T = I\)
 Eigenvalue decomposition,"Of a real, symmetric matrix \(A\): \(A = U \Lambda U^T\), where \(U\) is orthonormal"
 
-Singular value decomposision,"Of a real, \(m \times n\) matrix \(A\):
+Singular value decomposition,"Of a real, \(m \times n\) matrix \(A\):
 \(A = USV^T\), where
 \(U: m \times m\) has orthonormal columns s.t. \(U^TU = I_m\)
 \(V: n \times n\) has orthonormal columns and rows, s.t. \(V^TV = VV^T = I_n\)
-\(S: m \times n\) has \(r = min(m, n)\) sigular values on the diagonal"
+\(S: m \times n\) has \(r = min(m, n)\) singular values on the diagonal"
 
 Rank-nullity theorem,"For \(A: m \times n\), \(dim(range(A)) + dim(nullspace(A)) = r + (n - r) = n\)"
-LU factorization,"Any square matrix can be factorized into a product of a lower triangular and upper trinagular matrix."
+LU factorization,"Any square matrix can be factorized into a product of a lower triangular and upper triangular matrix."
 Partial derivative of \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) wrt \(x_i\),"\(\frac{\partial f}{\partial x_i} = \lim_{h \rightarrow 0} \frac{f(x + h e_i) - f(x)}{h}\)"
 
 Gradient of \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) wrt point \(x\),"\(\nabla f = \frac{\partial f}{\partial x} = (\frac{\partial f}{\partial x_i}, \dots, \frac{\partial f}{\partial x_n})^T\)
@@ -81,7 +81,7 @@ Hessian matrix,"Of a function \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) is an \
 \(H_f(x) = \frac{\partial^2 f}{\partial x^2} = \nabla^2 f = \begin{pmatrix}
 \frac{\partial^2 f}{\partial x_1^2} & \dots & \frac{\partial^2 f}{\partial x_1 \partial x_n}\\
 \dots & \dots & \dots \\
-\frac{\partial f^2}{\partial x_n \partial x_1} & \dots & \frac{\partial^2 f}{\partial x_n^2}
+\frac{\partial^2 f}{\partial x_n \partial x_1} & \dots & \frac{\partial^2 f}{\partial x_n^2}
 \end{pmatrix}\)"
 
 Necessary and sufficient conditions for local minimum at \(\theta^*\),"
@@ -121,8 +121,8 @@ The goal of EM is to maximize the log likelihood:
 \(LL(\theta) = \sum_{n=1}^N \log p(y_n|\theta) = \sum_{n=1}^N log \sum_{z_n} p(y_n, z_n|\theta)\)
 It does so by estimating the hidden variables in the E-step and compute a parameter estimate (e.g. via MLE or MAP) in the M-step."
 
-ELBO,"\(\mathbb{E}_{q_n} [\log p(y_n, z_n | \theta) + \mathbb{H}(q_n)\)
-which can be derived by applying Jensen's inequaklity to the concave log function of the log-likelihood:
+ELBO,"\(\mathbb{E}_{q_n} [\log p(y_n, z_n | \theta)] + \mathbb{H}(q_n)\)
+which can be derived by applying Jensen's inequality to the concave log function of the log-likelihood:
 \(LL(\theta) = \sum_{n=1}^N \log p(y_n|\theta) = \sum_{n=1}^N log \sum_{z_n} q_n(z_n) \frac{p(y_n, z_n|\theta)}{q_n(z_n)}
 \geq \sum_n \sum_{z_n} q_n(z_n) \log \frac{p(y_n, z_n | \theta)}{q_n(z_n)} \)"
 
@@ -149,7 +149,7 @@ RL: State value function,"\(V^\pi(s) = \mathbb{E}_{\tau \sim p_\pi(\tau|s)} [\su
 
 RL: State-action value function,"\(Q^\pi(a, s) = \mathbb{E}_{\tau \sim p_\pi(\tau|a, s)} [\sum_{t=T}^H \gamma^{t-T}r_t(a_t, s_t)]\)"
 
-RL: Model-free,Not expliclity modeling the environment's transition probabilities \(T\).
+RL: Model-free,Not explicitly modeling the environment's transition probabilities \(T\).
 
 RL: Model-based,Expliclity modeling the environment's transition probabilities \(T\).
 
@@ -176,7 +176,7 @@ Difference between LDA and logistic regression,"While both have the same form fo
 while logistic regression maximizes the conditional likelihood \(p(y|x,w)\)."
 
 Naive Bayes assumption,"The features are conditionally independent on each other, conditioned on the label."
-Ways to compute pesudo-inverse in OLS,"QR or SVD decomposition of pseudo-inverse"
+Ways to compute pseudo-inverse in OLS,"QR or SVD decomposition of pseudo-inverse"
 
 Prior for ridge/l2 regression,"Normal"
 Prior for lasso/l1 regression,"Laplace"
