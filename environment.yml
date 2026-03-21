@@ -1,6 +1,0 @@
-name: flashcards
-channels:
-  - conda-forge
-  - nodefaults
-dependencies:
-  - pre-commit
