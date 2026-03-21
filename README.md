@@ -18,14 +18,11 @@ In order to make use of them, run the following:
 ```console
 git clone git@github.com:kklein/flashcards.git
 cd flashcards
-mamba env create -f environment.yaml
-mamba activate flashcards
-pre-commit install
+pixi install
 ```
 
-Aside the `git commit` hook mechanisms, the pre-commit checks can be run proactively by
-executing
+The pre-commit hook can be run proactively by executing
 
 ```console
-pre-commit run --all-files
+pixi run pre-commit
 ```
